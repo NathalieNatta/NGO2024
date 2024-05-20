@@ -2,42 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ngo2024;
-
-import oru.inf.InfDB;
-import oru.inf.InfException;
 
 /**
  *
- * @author JillWithJ
+ * @author israael-ainain
  */
 public class Meny extends javax.swing.JFrame {
 
-    private InfDB idb;
-    private String inloggadAnv;
-    private String aid;
-    private String namn;
-    
     /**
      * Creates new form Meny
      */
-    public Meny(InfDB idb, String inloggadAnv) {
-        this.idb = idb;
-        this.inloggadAnv = inloggadAnv;
-        
-        Anstallning anstallning = new Anstallning(idb, inloggadAnv);
-        aid = anstallning.getInloggadAID(inloggadAnv);
-        
-        String atkomst = anstallning.getAtkomst(aid);
-        namn = anstallning.getNamn(aid);
-        
-        
+    public Meny() {
         initComponents();
-        lblInloggad.setText("Välkommen " + atkomst + " " + namn);
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,38 +25,100 @@ public class Meny extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblInloggad = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAdministratorer = new javax.swing.JLabel();
+        btnMittKonto = new javax.swing.JButton();
+        btnHallbarhetsmål = new javax.swing.JButton();
+        btnProjekt = new javax.swing.JButton();
+        btnAvdelning = new javax.swing.JButton();
+        btnAnstallda = new javax.swing.JButton();
+        btnPartners = new javax.swing.JButton();
+        btnLand = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblInloggad.setText("jLabel1");
+        lblAdministratorer.setText("Administratorer");
 
-        jLabel1.setText("jLabel1");
+        btnMittKonto.setText("Mitt Konto");
+
+        btnHallbarhetsmål.setText("hallbarhetsmal");
+
+        btnProjekt.setText("Projekt");
+
+        btnAvdelning.setText("Avdelning");
+
+        btnAnstallda.setText("Anstallda");
+        btnAnstallda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnstalldaActionPerformed(evt);
+            }
+        });
+
+        btnPartners.setText("Partners");
+        btnPartners.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPartnersActionPerformed(evt);
+            }
+        });
+
+        btnLand.setText("Land");
+
+        btnLoggaUt.setText("Logga Ut");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblInloggad)
-                    .addComponent(jLabel1))
-                .addContainerGap(357, Short.MAX_VALUE))
+                    .addComponent(btnHallbarhetsmål)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnMittKonto)
+                        .addComponent(lblAdministratorer))
+                    .addComponent(btnProjekt)
+                    .addComponent(btnAvdelning)
+                    .addComponent(btnAnstallda)
+                    .addComponent(btnLand)
+                    .addComponent(btnPartners))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(160, Short.MAX_VALUE)
+                .addComponent(btnLoggaUt)
+                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblInloggad)
+                .addGap(20, 20, 20)
+                .addComponent(lblAdministratorer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addComponent(btnMittKonto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHallbarhetsmål)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProjekt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAvdelning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAnstallda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPartners)
+                .addGap(12, 12, 12)
+                .addComponent(btnLand)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(btnLoggaUt))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAnstalldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnstalldaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnstalldaActionPerformed
+
+    private void btnPartnersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartnersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPartnersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,13 +150,20 @@ public class Meny extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new Meny().setVisible(true);
+                new Meny().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblInloggad;
+    private javax.swing.JButton btnAnstallda;
+    private javax.swing.JButton btnAvdelning;
+    private javax.swing.JButton btnHallbarhetsmål;
+    private javax.swing.JButton btnLand;
+    private javax.swing.JButton btnLoggaUt;
+    private javax.swing.JButton btnMittKonto;
+    private javax.swing.JButton btnPartners;
+    private javax.swing.JButton btnProjekt;
+    private javax.swing.JLabel lblAdministratorer;
     // End of variables declaration//GEN-END:variables
 }
