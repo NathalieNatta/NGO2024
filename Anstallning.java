@@ -7,6 +7,8 @@ package ngo2024;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.lang.Integer;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -89,7 +91,28 @@ public class Anstallning {
         return mentor;
     }
     
-
+    public String getMentorTill(String aid){
+        
+        String mentorTill = "";
+        String mentorString;
+        boolean arMentor = getMentor(aid);
+        
+        try{
+            String sqlFraga = "SELECT mentor FROM handlaggare WHERE aid = '" + aid + "'";
+            mentorString = idb.fetchSingle(sqlFraga);
+            if(mentorString != null && arMentor){
+                mentorTill = mentorString;
+            }
+        }
+        
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return mentorTill;
+        
+    }
+    
     public String getNamn(String aid){
         
         String namn;
@@ -97,8 +120,8 @@ public class Anstallning {
         String efternamn = "";
         
         try{
-            String sqlFraga1 = "SELECT fornamn FROM anstalld WHERE epost = '" + inloggadAnv + "'";
-            String sqlFraga2 = "SELECT efternamn FROM anstalld WHERE epost = '" + inloggadAnv + "'";
+            String sqlFraga1 = "SELECT fornamn FROM anstalld WHERE aid = '" + aid + "'";
+            String sqlFraga2 = "SELECT efternamn FROM anstalld WHERE aid = '" + aid + "'";
             fornamn = idb.fetchSingle(sqlFraga1);
             efternamn = idb.fetchSingle(sqlFraga2);
         }
@@ -126,4 +149,97 @@ public class Anstallning {
         
     }
     
+    public void deleteAnstalld(String epost){
+        
+        String aid = getInloggadAID(epost);
+        
+        try{
+            String sqlFraga = "DELETE FROM anstalld WHERE aid = '" + aid + "'";
+            idb.delete(sqlFraga);
+        }
+    
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public void addAnstalld(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, String avdelning){
+        
+        try{
+            String sqlFraga = "INSERT INTO anstalld (aid, fornamn, efternamn, adress, epost, telefon, anstallningdatum, losenord, avdelning) VALUES (" + aid + ", " + fornamn + ", " + efternamn + ", " + adress + ", " + epost + ", " + telefon + ", " + anstallningsdatum + ", " + losenord + ", " + avdelning + ")";
+            idb.insert(sqlFraga);
+            }
+        
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public String genereraEpost(String fornamn, String efternamn){
+        
+        String epost = fornamn + "." + efternamn + "@example.com";
+        
+        ArrayList<String> eposter = new ArrayList<>();
+        Random random = new Random();
+        
+        try{
+            String sqlFraga = "SELECT epost FROM anstalld";
+            eposter = idb.fetchColumn(sqlFraga);
+        }
+        
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        while (eposter.contains(epost)){
+            int slumpInt = random.nextInt(99);
+            String slumpString = Integer.toString(slumpInt);
+            epost = slumpString + "@example.com";   
+        }
+
+        epost = epost.replace("@example.com", "");
+        
+        return epost;
+    }
+    
+    public String genereraLosenord(){
+        
+        String losenord = "password";
+
+        Random random = new Random();
+        int slumpInt = random.nextInt(999);
+        String slumpString = Integer.toString(slumpInt);
+        losenord = losenord + slumpString;   
+                
+        return losenord;
+    }
+    
+    public String setAID(){
+        
+        ArrayList<String> aids = new ArrayList<>();
+        Random random = new Random();
+        
+        String aid;
+        
+        try{
+            String sqlFraga = "SELECT aid FROM anstalld";
+            aids = idb.fetchColumn(sqlFraga);
+        }
+        
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        do{
+            int slumpInt = random.nextInt(99);
+            String slumpString = Integer.toString(slumpInt);
+            aid = slumpString;
+        }while (aids.contains(aid));
+        
+        return aid;
+    }
+    
+    
 }
+
+
