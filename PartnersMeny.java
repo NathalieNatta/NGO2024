@@ -1,3 +1,10 @@
+package ngo2024;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,11 +15,15 @@
  * @author israael-ainain
  */
 public class PartnersMeny extends javax.swing.JFrame {
-
+private String anstalldID;
+private InfDB idb;
     /**
      * Creates new form PartnersMeny
      */
-    public PartnersMeny() {
+    public PartnersMeny(InfDB idb, String anstalldID) {
+        this.anstalldID = anstalldID;
+        this.idb = idb;
+
         initComponents();
     }
 
@@ -30,33 +41,36 @@ public class PartnersMeny extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taTextArea = new javax.swing.JTextArea();
         lblNamn = new javax.swing.JLabel();
-        tf = new javax.swing.JTextField();
-        btnAndra = new javax.swing.JButton();
+        tfNamn = new javax.swing.JTextField();
+        btnAddPartner = new javax.swing.JButton();
         lblKontaktPerson = new javax.swing.JLabel();
-        tf2 = new javax.swing.JTextField();
-        btnAndra2 = new javax.swing.JButton();
+        tfKontaktPerson = new javax.swing.JTextField();
+        btnChangePartner = new javax.swing.JButton();
         lblKontaktEpost = new javax.swing.JLabel();
-        tf3 = new javax.swing.JTextField();
-        btnAndra3 = new javax.swing.JButton();
+        tfKontaktEpost = new javax.swing.JTextField();
+        btnRemovePartner = new javax.swing.JButton();
         lblTelefon = new javax.swing.JLabel();
-        tf4 = new javax.swing.JTextField();
-        btnAndra4 = new javax.swing.JButton();
+        tfTelefon = new javax.swing.JTextField();
         lblAdress = new javax.swing.JLabel();
-        tf5 = new javax.swing.JTextField();
-        btnAndra5 = new javax.swing.JButton();
+        tfAdress = new javax.swing.JTextField();
         lblBranch = new javax.swing.JLabel();
-        tf6 = new javax.swing.JTextField();
-        btnAndra6 = new javax.swing.JButton();
+        tfBranch = new javax.swing.JTextField();
         lblStad = new javax.swing.JLabel();
-        tf7 = new javax.swing.JTextField();
-        btnAndra7 = new javax.swing.JButton();
+        tfStad = new javax.swing.JTextField();
         btnTillbaka = new javax.swing.JButton();
+        btnVisaPartners = new javax.swing.JButton();
+        tfPartnerID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblPartners.setText("Partners");
 
-        cbProjekt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbProjekt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj projekt" }));
+        cbProjekt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbProjektActionPerformed(evt);
+            }
+        });
 
         taTextArea.setColumns(20);
         taTextArea.setRows(5);
@@ -64,47 +78,47 @@ public class PartnersMeny extends javax.swing.JFrame {
 
         lblNamn.setText("Namn");
 
-        tf.setText("tf");
-
-        btnAndra.setText("Ändra");
+        btnAddPartner.setText("Lägg till partner");
+        btnAddPartner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPartnerActionPerformed(evt);
+            }
+        });
 
         lblKontaktPerson.setText("KontaktPerson");
 
-        tf2.setText("tf");
-
-        btnAndra2.setText("Andra");
+        btnChangePartner.setText("Ändra partner");
+        btnChangePartner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePartnerActionPerformed(evt);
+            }
+        });
 
         lblKontaktEpost.setText("KontaktEpost");
 
-        tf3.setText("tf");
-
-        btnAndra3.setText("Ändra");
+        btnRemovePartner.setText("Ta bort partner:");
+        btnRemovePartner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemovePartnerActionPerformed(evt);
+            }
+        });
 
         lblTelefon.setText("Telefon");
 
-        tf4.setText("tf");
-
-        btnAndra4.setText("Ändra");
-
         lblAdress.setText("Adress");
-
-        tf5.setText("tf");
-
-        btnAndra5.setText("Ändra");
 
         lblBranch.setText("Branch");
 
-        tf6.setText("tf");
-
-        btnAndra6.setText("Ändra");
-
         lblStad.setText("Stad");
 
-        tf7.setText("tf");
-
-        btnAndra7.setText("Ändra");
-
         btnTillbaka.setText("Tillbaka");
+
+        btnVisaPartners.setText("Visa Partners");
+        btnVisaPartners.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaPartnersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,27 +126,30 @@ public class PartnersMeny extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblPartners)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVisaPartners)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTelefon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblKontaktPerson)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfKontaktPerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblKontaktEpost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfKontaktEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblNamn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblBranch)
@@ -140,79 +157,134 @@ public class PartnersMeny extends javax.swing.JFrame {
                             .addComponent(lblStad, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                            .addComponent(tfAdress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfBranch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfStad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTillbaka)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAndra, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAndra2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAndra3))
-                        .addComponent(btnAndra4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAndra5, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAndra6, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAndra7, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnTillbaka)
+                        .addComponent(btnAddPartner))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnChangePartner)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tfPartnerID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnRemovePartner)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tf3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAndra3))
+                    .addComponent(tfKontaktEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPartners)
-                            .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVisaPartners))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNamn)
-                            .addComponent(tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAndra))
+                            .addComponent(tfNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddPartner))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblKontaktPerson)
-                            .addComponent(tf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAndra2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblKontaktEpost)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblKontaktPerson)
+                                    .addComponent(tfKontaktPerson, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblKontaktEpost))
+                            .addComponent(btnChangePartner, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefon)
-                    .addComponent(tf4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAndra4))
+                    .addComponent(tfTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tf5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAndra5))
+                    .addComponent(tfAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAdress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBranch)
-                            .addComponent(tf6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfBranch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblStad)
-                            .addComponent(tf7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAndra6)
+                            .addComponent(tfStad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(btnTillbaka))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRemovePartner)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAndra7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(btnTillbaka))
+                        .addComponent(tfPartnerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProjektActionPerformed
+        ArrayList<HashMap<String, String>> projektLista = projekt.getMinaProjekt();
+        
+        for(HashMap<String, String> projekten : projektLista){
+        String namn = projekten.get("namn");
+        cbFiltreraProjekt.addItem(namn);
+        cbAddProjekt.addItem(namn);
+        }
+    
+    }//GEN-LAST:event_cbProjektActionPerformed
+
+    private void btnAddPartnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPartnerActionPerformed
+        String namn = tfNamn.getText();
+        String kontaktperson = tfKontaktPerson.getText();
+        String kontaktepost = tfKontaktEpost.getText();
+        String telefon = tfTelefon.getText();
+        String adress = tfAdress.getText();
+        String branch = tfBranch.getText();
+        String stad = tfStad.getText();
+    }//GEN-LAST:event_btnAddPartnerActionPerformed
+
+    private void btnVisaPartnersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaPartnersActionPerformed
+      
+    }//GEN-LAST:event_btnVisaPartnersActionPerformed
+
+    private void btnChangePartnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePartnerActionPerformed
+      String namn = tfNamn.getText();
+        String kontaktperson = tfKontaktPerson.getText();
+        String kontaktepost = tfKontaktEpost.getText();
+        String telefon = tfTelefon.getText();
+        String adress = tfAdress.getText();
+        String branch = tfBranch.getText();
+        String stad = tfStad.getText();  
+    }//GEN-LAST:event_btnChangePartnerActionPerformed
+
+    private void btnRemovePartnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePartnerActionPerformed
+        try {
+            int pid = parseInt(tfPartnerID.getText());
+            
+            if(anstalld.getAdmin(anstalldID)){
+                removePartner(pid);
+                System.out.println("Partnern har tagits bort");
+                
+            } else {
+                System.out.println("Endast administratörer klan ta bort partners");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Vänligen ange ett giltigt partner-ID");
+        }catch (InfException ex){
+            System.out.println(ex.getMessage());
+        }       
+    }//GEN-LAST:event_btnRemovePartnerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,14 +322,11 @@ public class PartnersMeny extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAndra;
-    private javax.swing.JButton btnAndra2;
-    private javax.swing.JButton btnAndra3;
-    private javax.swing.JButton btnAndra4;
-    private javax.swing.JButton btnAndra5;
-    private javax.swing.JButton btnAndra6;
-    private javax.swing.JButton btnAndra7;
+    private javax.swing.JButton btnAddPartner;
+    private javax.swing.JButton btnChangePartner;
+    private javax.swing.JButton btnRemovePartner;
     private javax.swing.JButton btnTillbaka;
+    private javax.swing.JButton btnVisaPartners;
     private javax.swing.JComboBox<String> cbProjekt;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAdress;
@@ -269,12 +338,13 @@ public class PartnersMeny extends javax.swing.JFrame {
     private javax.swing.JLabel lblStad;
     private javax.swing.JLabel lblTelefon;
     private javax.swing.JTextArea taTextArea;
-    private javax.swing.JTextField tf;
-    private javax.swing.JTextField tf2;
-    private javax.swing.JTextField tf3;
-    private javax.swing.JTextField tf4;
-    private javax.swing.JTextField tf5;
-    private javax.swing.JTextField tf6;
-    private javax.swing.JTextField tf7;
+    private javax.swing.JTextField tfAdress;
+    private javax.swing.JTextField tfBranch;
+    private javax.swing.JTextField tfKontaktEpost;
+    private javax.swing.JTextField tfKontaktPerson;
+    private javax.swing.JTextField tfNamn;
+    private javax.swing.JTextField tfPartnerID;
+    private javax.swing.JTextField tfStad;
+    private javax.swing.JTextField tfTelefon;
     // End of variables declaration//GEN-END:variables
 }

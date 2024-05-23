@@ -25,31 +25,34 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="lblPartners" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="cbProjekt" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="cbProjekt" min="-2" pref="108" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnVisaPartners" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblTelefon" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tf4" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfTelefon" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblKontaktPerson" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tf2" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfKontaktPerson" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblKontaktEpost" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tf3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfKontaktEpost" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tf" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfNamn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -59,25 +62,29 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tf5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf6" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfAdress" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfBranch" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfStad" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="btnAndra" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAndra2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAndra3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="btnAndra4" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndra5" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndra6" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndra7" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddPartner" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnChangePartner" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="tfPartnerID" min="-2" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnRemovePartner" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -88,68 +95,68 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tf3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndra3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="tfKontaktEpost" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblPartners" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbProjekt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVisaPartners" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAndra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddPartner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblKontaktPerson" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAndra2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblKontaktPerson" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfKontaktPerson" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblKontaktEpost" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnChangePartner" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lblKontaktEpost" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAndra4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tf5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAndra5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="tfAdress" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAdress" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblBranch" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf6" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfBranch" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblStad" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tf7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfStad" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnAndra6" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnRemovePartner" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnAndra7" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfPartnerID" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
-              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,14 +170,14 @@
     <Component class="javax.swing.JComboBox" name="cbProjekt">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="1">
+            <StringItem index="0" value="V&#xe4;lj projekt"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbProjektActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -195,110 +202,88 @@
         <Property name="text" type="java.lang.String" value="Namn"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfNamn">
     </Component>
-    <Component class="javax.swing.JButton" name="btnAndra">
+    <Component class="javax.swing.JButton" name="btnAddPartner">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg till partner"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddPartnerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblKontaktPerson">
       <Properties>
         <Property name="text" type="java.lang.String" value="KontaktPerson"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfKontaktPerson">
     </Component>
-    <Component class="javax.swing.JButton" name="btnAndra2">
+    <Component class="javax.swing.JButton" name="btnChangePartner">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Andra"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra partner"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePartnerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblKontaktEpost">
       <Properties>
         <Property name="text" type="java.lang.String" value="KontaktEpost"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfKontaktEpost">
     </Component>
-    <Component class="javax.swing.JButton" name="btnAndra3">
+    <Component class="javax.swing.JButton" name="btnRemovePartner">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+        <Property name="text" type="java.lang.String" value="Ta bort partner:"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemovePartnerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTelefon">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefon"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAndra4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfTelefon">
     </Component>
     <Component class="javax.swing.JLabel" name="lblAdress">
       <Properties>
         <Property name="text" type="java.lang.String" value="Adress"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAndra5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfAdress">
     </Component>
     <Component class="javax.swing.JLabel" name="lblBranch">
       <Properties>
         <Property name="text" type="java.lang.String" value="Branch"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAndra6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfBranch">
     </Component>
     <Component class="javax.swing.JLabel" name="lblStad">
       <Properties>
         <Property name="text" type="java.lang.String" value="Stad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="tf"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAndra7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="tfStad">
     </Component>
     <Component class="javax.swing.JButton" name="btnTillbaka">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tillbaka"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVisaPartners">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Visa Partners"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisaPartnersActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfPartnerID">
     </Component>
   </SubComponents>
 </Form>

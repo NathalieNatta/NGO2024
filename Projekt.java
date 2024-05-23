@@ -29,7 +29,7 @@ public class Projekt {
         //int anstalldIdInt = Integer.parseInt(anstalldID);
         //this.inloggadAnvandare = inloggadAnvandare;
         this.avdelning = getMinAvdelning(anstalldID);
-        anstalld = new Anstallning(idb, anstalldID, "");
+        //anstalld = new Anstallning(idb, anstalldID, "");
     }   
     public String getMinAvdelning(String aid)
         {
@@ -60,7 +60,22 @@ public class Projekt {
         }
         return projektID;
     
-    }    
+    }   
+    
+    public String getLandID(String namn)
+        {
+        String landID = "";
+        
+        try{ 
+            String sqlFraga = "SELECT lid from land where namn = '" + namn + "'";
+            landID = idb.fetchSingle(sqlFraga);
+  
+
+        } catch (InfException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return landID;
+        }
     
     public ArrayList<HashMap<String,String>> getAllaProjekt()
         {
@@ -487,7 +502,7 @@ public class Projekt {
             }
         }
         
-        public void addLand(int lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
+        public void addLand(String lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
             if(anstalld.getAdmin(anstalldID)){
                 try {
                     String sqlFraga = "INSERT INTO land(lid, namn, sprak, valuta, tidszon, politisk_struktur, ekonomi) VALUES ('" + lid + "','" + namn + "','" + sprak + "','" + valuta + "','" + tidszon + "','" + politisk_struktur + "','" + ekonomi + "','";
@@ -501,7 +516,7 @@ public class Projekt {
             }
         }
         
-        public void changeLand(int lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
+        public void changeLand(String lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
             if(anstalld.getAdmin(anstalldID)){
                 try{
                     String sqlFraga = "UPDATE land SET namn = '" + namn + "', språk = '" + sprak + "', valuta = '" + valuta + "', tidszon = '" + tidszon + "', politisk struktur = '" + politisk_struktur + "', ekonomi = '" + ekonomi + "WHERE lid = " + lid;
