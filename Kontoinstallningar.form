@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblEpost" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnNyttLosenord" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="tfEpost" pref="202" max="32767" attributes="0"/>
+                                  <Component id="tfNyEpost" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAtNyEpost" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnNyEpost" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAtEpost" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnEpost" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="tfNyttLosenord" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="tfLosenord" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnLosenord" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAdress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyttTelefonNummer" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAdress" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="tfNyttTelefonNummer" alignment="0" pref="200" max="32767" attributes="0"/>
+                                          <Component id="tfTelefonNummer" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="tfAdress" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblNyAdressNr" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="lblNyAdressGata" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="lblNyAdressStad" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="tfNyAdressNr" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tfNyAdressGata" min="-2" pref="171" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tfNyAdressStad" min="-2" pref="178" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="lblFelmeddelande" min="-2" pref="357" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnTelefonNummer" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyttTelefonNummer" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyAdress" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdress" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyEpost" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLosenord" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyttLosenord" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelefonNummer" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="519" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnNyAdressAvbryt" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttTelefonNummerAvbryt" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttLosenordAvbryt" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyEpostAvbryt" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnNyEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNyEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAtNyEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyEpostAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttLosenordAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfNyttTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyttTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttTelefonNummerAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyAdressAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblFelmeddelande" pref="29" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblRubrik">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Kontoinst&#xe4;llningar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Epost"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyEpost">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyEpostActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Epost "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfEpost">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLosenord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfLosenord">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyttLosenord">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttLosenord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt L&#xf6;senord"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyttLosenord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyttLosenordActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTelefonNummer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefonnummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfTelefonNummer">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttTelefonNummer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt Telefonnummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyttTelefonNummer">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyttTelefonNummer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyttTelefonNummerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adress"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAdress">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyAdressNr">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Adress"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyAdressActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEpostActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLosenord">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLosenordActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTelefonNummer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTelefonNummerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdressActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAtEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="@example.com"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAtNyEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="@example.com"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFelmeddelande">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyAdressNr">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nummer:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyAdressGata">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gata:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyAdressStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyAdressGata">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNyAdressStad">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyAdressAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyAdressAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyttTelefonNummerAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyttTelefonNummerAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyttLosenordAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyttLosenordAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyEpostAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyEpostAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

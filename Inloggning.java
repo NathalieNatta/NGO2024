@@ -118,7 +118,13 @@ public class Inloggning extends javax.swing.JFrame {
 
         System.out.println("aT = " + aT);
         
-        if(epost.isBlank() || !aT ){
+        //TEMP
+        new Meny(idb, epost).setVisible(true);
+        this.setVisible(false);
+        return;
+        
+       
+        /*if(epost.isBlank() || !aT ){
             lblMeddelande.setText("Skriv i en epost"); 
             lblMeddelande.setVisible(true);
         }
@@ -145,7 +151,7 @@ public class Inloggning extends javax.swing.JFrame {
         }catch(InfException ex){
             System.out.println(ex.getMessage());
         }
-        }
+        }*/
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
     /**

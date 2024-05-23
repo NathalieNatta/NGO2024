@@ -24,7 +24,7 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         
         this.idb = idb;
         anstalldID = aid;
-        anstalld = new Anstallning(idb, aid);
+        anstalld = new Anstallning(idb, aid, "");
         
         initComponents();
         
@@ -506,8 +506,9 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         String telefon = tfAddTelefon.getText();
         String avdelning = tfAddAvdelning.getText();
         String aid = anstalld.setAID();
+        String dagensDatum = getDagensDatum();
         
-        anstalld.addAnstalld(aid, fornamn, efternamn, adress, epost, telefon, losenord, avdelning);
+        anstalld.addAnstalld(aid, fornamn, efternamn, adress, epost, telefon, dagensDatum, losenord, avdelning);
         
         setSynlighet("reset", false);
         

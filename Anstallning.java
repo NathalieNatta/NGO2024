@@ -6,10 +6,8 @@ package ngo2024;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import java.lang.Integer;
 import java.util.ArrayList;
 import java.util.Random;
-import java.sql.Date;
 
 /**
  *
@@ -27,6 +25,12 @@ public class Anstallning {
         anstalldID = getInloggadAID(inloggadAnv);
         
     }
+    
+    public Anstallning(InfDB idb, String aid, String inget){
+        this.idb = idb;
+        anstalldID = aid;
+    }
+    
     
     public String getInloggadAID(String inloggadAnv){
         
@@ -150,6 +154,22 @@ public class Anstallning {
         
     }
     
+    public String getAvdelning(String aid){
+        
+        String avd = "";
+        
+        try{ 
+        String sqlFraga = "SELECT avdelning FROM anstalld WHERE aid = '" + aid + "'";
+        avd = idb.fetchSingle(sqlFraga);
+        }
+        
+        catch(InfException ex){
+          System.out.println(ex.getMessage());
+        }
+        
+        return avd;
+    }
+    
     public void deleteAnstalld(String epost){
         
         String aid = getInloggadAID(epost);
@@ -240,137 +260,7 @@ public class Anstallning {
         return aid;
     }
     
-    public void addProjekt(int pid,String projektnamn, String beskrivning, Date startdatum, Date slutdatum, Double kostnad, String status, String prioritet, int projektchef, int land){
-        if(getAdmin(anstalldID)){
-            try {
-                String sqlFraga = "INSERT INTO projekt(pid, projektnamn, beskrivning, startdatum ,slutdatum, kostnad, status, prioritet, projektchef, land)VALUES ('"+ pid + "','"+ projektnamn + "','" + beskrivning + "','" + startdatum + "','"+ slutdatum + "','" + kostnad + "','" + status + "','" + prioritet + "','" + projektchef + "','" + land + "','";
-                idb.insert(sqlFraga);
-                System.out.println("Projektet är tillagt!");
-            }catch (InfException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }else {
-            System.out.println("Endast administratörer kan lägga till projekt");
-        }
-    }
-    public void changeProjekt(int pid, String projektnamn, String beskrivning, Date startdatum, Date slutdatum, Double kostnad, String status, String prioritet,int projektchef, int land){
-        if(getAdmin(anstalldID)){
-            try {
-                String sqlFraga = "UPDATE projekt SET projektnamn = '"+ projektnamn + "', beskrivning = '" + beskrivning + "',startdatum = '"+ startdatum + "',slutdatum = '" + slutdatum + "', kostnad = " + kostnad + ", status = '" + status + "', prioritet = '" + prioritet + "', projektchef = " + projektchef + ", land = " + land + "WHERE pid = " + pid;
-                idb.update(sqlFraga);
-                System.out.println("Projektet har ändrats");
-            } catch (InfException ex){
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan ändra uppgifter om ett projekt");
-        }
-    }
-    public void removeProjekt(int pid){
-        if(getAdmin(anstalldID)){
-            try {
-                String sqlFraga = "DELETE from projekt WHERE pid = " + pid;
-                idb.delete(sqlFraga);
-                System.out.println("Projektet har tagits bort!");
-            } catch (InfException ex){
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan ta bort projekt");
-        }
-    }
-    public void addAvdelning(int avdid, String namn, String beskrivning, String adress, String epost, String telefon, int stad, int chef){
-        if(getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "INSERT INTO avdelning(avdid, namn, beskrivning, adress, epost, telefon, stad, chef) VALUES('" + avdid + "','"+ namn + "','" + beskrivning + "','" + adress + "','" + epost + "','" + telefon + "','" + stad + "','" + chef + "','";
-                idb.insert(sqlFraga);
-                System.out.println("Avdelningsuppgifter har tillagts");
-            } catch (InfException ex){
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan lägga till avdelningsuppgifter");
-        }
-    }
-    public void changeAvdelning(int avdid, String namn, String beskrivning, String adress, String epost, String telefon, int stad, int chef){
-        if(getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "UPDATE avdelning SET namn = '" + namn + "',  beskrivning = '" + beskrivning + "', adress = '" + adress + "', epost = '" + epost + "', telefon = '" + telefon + "', stad = '" + stad + "', chef = '" + chef + "WHERE avdid = " + avdid;
-                idb.update(sqlFraga);
-                System.out.println("Avdelningsuppgifter har ändrats");
-            } catch (InfException ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan ändra avdelningsuppgifter");
-        }
-    }
-    public void addPartner(int pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, int stad){
-        if(getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "INSERT INTO partner(pid, namn, kontaktperson, kontaktepost, telefon, adress, branch, stad) VALUES('" + pid + "','" + namn + "','" + kontaktperson + "','" + kontaktepost + "','" + telefon + "','" + adress + "','" + branch + "','" + stad + "','";
-                idb.insert(sqlFraga);
-                System.out.println("Partneruppgifter har lagts till");
-            } catch (InfException ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan lägga till partners");
-        }
-    }
-    public void changePartner(int pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, int stad) {
-        if(getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "UPDATE partner SET namn = '" + namn + "', kontaktperson = '" + kontaktperson + "', kontaktepost = '" + kontaktepost + "', telefon = '" + telefon + "', adress = '" + adress + "', branch = '" + branch + "', stad = '" + stad + "WHERE pid = " + pid;
-                idb.update(sqlFraga);
-                System.out.println("Partneruppgifter har ändrats");
-            } catch (InfException ex){
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan ändra partners");
-        }
-    }
-        public void removePartner(int pid){
-            if(getAdmin(anstalldID)){
-                try{
-                    String sqlFraga = "DELETE from partner WHERE pid = " + pid;
-                    idb.delete(sqlFraga);
-                    System.out.println("Partnern har tagits bort");
-                } catch (InfException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan ta bort partners");
-            }
-        }
-        public void addLand(int lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
-            if(getAdmin(anstalldID)){
-                try {
-                    String sqlFraga = "INSERT INTO land(lid, namn, sprak, valuta, tidszon, politisk_struktur, ekonomi) VALUES ('" + lid + "','" + namn + "','" + sprak + "','" + valuta + "','" + tidszon + "','" + politisk_struktur + "','" + ekonomi + "','";
-                    idb.insert(sqlFraga);
-                    System.out.println("Landet har lagts till");
-                } catch (InfException ex){
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan lägga till ett land");
-            }
-        }
-        public void changeLand(int lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
-            if(getAdmin(anstalldID)){
-                try{
-                    String sqlFraga = "UPDATE land SET namn = '" + namn + "', språk = '" + sprak + "', valuta = '" + valuta + "', tidszon = '" + tidszon + "', politisk struktur = '" + politisk_struktur + "', ekonomi = '" + ekonomi + "WHERE lid = " + lid;
-                    idb.update(sqlFraga);
-                    System.out.println("Landets uppgifter har ändrats");
-                } catch (InfException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan ändra länder");
-            }
-        }
-    }
-
+    
+}
 
 

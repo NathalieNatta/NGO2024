@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPersonal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAvdelning" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblAddAvdelning" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="cbAddAvdelning" min="-2" pref="189" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="677" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblSokPersonal" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnSok" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblSokEpost" min="-2" pref="89" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="tfSokEpost" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="lblSokAtEpost" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblSokNamn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tfSokFornamn" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="lblSokFornamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblSokEfternamn" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tfSokEfternamn" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                                      <Component id="lblFiltreraAvdelning" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="cbFiltreraAvdelning" min="-2" pref="300" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="btnFiltreraAvdelning" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnRedigeraAvdelning" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnAddAvdelning" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnSePersonal" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnSokPersonalPaMinAvdelning" alignment="0" pref="131" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAddTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddAdress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddBeskrivning" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddEpost" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="lblAddStad" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAddChef" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tfAddChef" pref="189" max="32767" attributes="0"/>
+                                      <Component id="tfAddBeskrivning" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="tfAddNamn" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="tfAddAdress" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="tfAddEpost" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfAddTelefon" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="tfAddStad" min="-2" pref="189" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblAddAtEpost" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnAddEpost" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddNamn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddBeskrivning" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddAdress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddStad" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddChef" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddTelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblRedigeraBeskrivning" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="1" attributes="0">
+                                                                  <Component id="lblRedigeraEpost" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="lblRedigeraAdress" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="tfRedigeraAdressNr" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                                                      <Component id="lblRedigeraAdressNr" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="tfRedigeraAdressGata" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                                                      <Component id="lblRedigeraAdressGata" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="lblRedigeraAdressStad" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="tfRedigeraAdressStad" min="-2" pref="100" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="tfRedigeraEpost" min="-2" pref="189" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="lblRedigeraAtEpost" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="lblRedigeraTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="lblRedigeraChef" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="lblRedigeraStad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="tfRedigeraStad" min="-2" pref="187" max="-2" attributes="0"/>
+                                                              <Component id="tfRedigeraChef" min="-2" pref="187" max="-2" attributes="0"/>
+                                                              <Component id="tfRedigeraTelefon" min="-2" pref="187" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblRedigeraNamn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="btnRedigeraEpost" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraTelefon" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraChef" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraStad" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraAdress" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                                  <Component id="tfRedigeraBeskrivning" min="-2" pref="189" max="-2" attributes="0"/>
+                                                                  <Component id="tfRedigeraNamn" min="-2" pref="189" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                                  <Component id="btnRedigeraNamn" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="btnRedigeraBeskrivning" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="btnRedigeraNamnAvbryt" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraBeskrivningAvbryt" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraAdressAvbryt" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraEpostAvbryt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraTelefonAvbryt" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraChefAvbryt" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnRedigeraStadAvbryt" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnAddAvbryt" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblAvdelning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSePersonal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSokPersonalPaMinAvdelning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnAddAvdelning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnRedigeraAvdelning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="lblPersonal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="191" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnFiltreraAvdelning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFiltreraAvdelning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbFiltreraAvdelning" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblSokPersonal" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="btnSok" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSokEpost" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="tfSokEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSokAtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSokNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSokFornamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSokEfternamn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfSokFornamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfSokEfternamn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddAvdelning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAddAvdelning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblRedigeraNamn" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tfAddNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAddNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfRedigeraNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnRedigeraNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnRedigeraNamnAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfAddBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraBeskrivningAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRedigeraAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfAddAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraAdressAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tfAddEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddAtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraAtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraEpostAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfAddTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraTelefonAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfAddChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraChefAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAddStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfAddStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRedigeraStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRedigeraStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRedigeraStadAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avdelning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSePersonal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Se Personal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSePersonalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSokPersonalPaMinAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Personal"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokPersonalPaMinAvdelningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg Till Avdelning"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddAvdelningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra i Avdelning"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraAvdelningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPersonal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Personal"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="taPersonal">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="12" style="0"/>
+            </Property>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lblSokPersonal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Personal"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSokNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k med Namn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSokEpost">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSok">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSokEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k med Epost"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSokFornamn">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSokAtEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="@example.com"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg Till Avdelning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avdelningsnamn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddNamn">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lagg Till"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddNamnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Beskrivning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddBeskrivningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adress"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddAdress">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddAdressActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Epost"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddTelefon">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddAtEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="@example.com"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddEpostActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefon"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddEpost">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddTelefonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddStad">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddStadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Chef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddChef">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddChefActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAddBeskrivning">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTillbaka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFelmeddelande">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Felmeddelande"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFiltreraAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Filtrera"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFiltreraAvdelningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFiltreraAvdelning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avdelning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSokFornamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="F&#xf6;rnamn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSokEfternamn">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSokEfternamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Efternamn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbFiltreraAvdelning">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="V&#xe4;lj Avdelning"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbAddAvdelning">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="V&#xe4;lj en Avdelning"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt Avdelningsnamn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraNamn">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraNamnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraNamnAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraNamnAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Beskrivning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraBeskrivning">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Adress"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraAdressNr">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Epost"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraEpost">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraAdressGata">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraAdressStad">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt Telefonnummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Chef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny Stad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraTelefon">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraChef">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfRedigeraStad">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraAtEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="@example.com"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraBeskrivningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraBeskrivningAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraBeskrivningAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraAdressActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraAdressAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraAdressAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraEpost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraEpostActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraEpostAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraEpostAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraTelefonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraTelefonAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraTelefonAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraChefActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraChefAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraChefAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraStadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedigeraStadAvbryt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avbryt"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedigeraStadAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraAdressNr">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraAdressGata">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gata"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRedigeraAdressStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stad"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

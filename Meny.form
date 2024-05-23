@@ -24,103 +24,62 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnHallbarhetsmål" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="btnMittKonto" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAdministratorer" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnProjekt" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAvdelning" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAnstallda" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnLand" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnPartners" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblInloggad" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnKonto" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="160" max="32767" attributes="0"/>
-              <Component id="btnLoggaUt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+              <EmptySpace pref="307" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="lblAdministratorer" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnMittKonto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnHallbarhetsmål" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnProjekt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAvdelning" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAnstallda" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnPartners" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="btnLand" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
-              <Component id="btnLoggaUt" min="-2" max="-2" attributes="0"/>
+              <Component id="lblInloggad" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="btnKonto" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="133" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblAdministratorer">
+    <Component class="javax.swing.JLabel" name="lblInloggad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Administratorer"/>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMittKonto">
+    <Component class="javax.swing.JButton" name="btnKonto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mitt Konto"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKontoActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnHallbarhetsm&#xe5;l">
+    <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="hallbarhetsmal"/>
+        <Property name="text" type="java.lang.String" value="Anst&#xe4;llda"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnProjekt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Projekt"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAvdelning">
+    <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avdelning"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAnstallda">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Anstallda"/>
-      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnstalldaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnPartners">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Partners"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPartnersActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnLand">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Land"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnLoggaUt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Logga Ut"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
