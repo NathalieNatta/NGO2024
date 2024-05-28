@@ -133,8 +133,9 @@
                   <Component id="btnNyttTelefonNummerAvbryt" min="-2" max="-2" attributes="0"/>
                   <Component id="btnNyttLosenordAvbryt" min="-2" max="-2" attributes="0"/>
                   <Component id="btnNyEpostAvbryt" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -184,30 +185,39 @@
                   <Component id="lblNyttTelefonNummer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnNyttTelefonNummerAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tfAdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tfAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tfNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyAdressAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblFelmeddelande" pref="29" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tfNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNyAdressStad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnNyAdressAvbryt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lblFelmeddelande" pref="29" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -410,6 +420,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyEpostAvbrytActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTillbaka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

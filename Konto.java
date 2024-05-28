@@ -9,7 +9,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Natha, Israael
  */
 public class Konto {
     
@@ -91,7 +91,7 @@ public class Konto {
     public void setEpost(String nyEpost){
                 
         try{
-           String sqlFraga = "UPDATE anstalld SET epost = " + nyEpost + "@example.com" + "WHERE aid = '" + anstalldID + "'";
+           String sqlFraga = "UPDATE anstalld SET epost = '" + nyEpost + "@example.com" + "' WHERE aid = '" + anstalldID + "'";
            idb.update(sqlFraga);
         }
         
@@ -104,7 +104,7 @@ public class Konto {
     public void setLosenord(String nyttLosenord){
                 
         try{
-            String sqlFraga = "UPDATE anstalld SET losenord = " + nyttLosenord + " WHERE aid = '" + anstalldID + "'";
+            String sqlFraga = "UPDATE anstalld SET losenord = '" + nyttLosenord + "' WHERE aid = '" + anstalldID + "'";
             idb.update(sqlFraga);
             
         }
@@ -117,7 +117,7 @@ public class Konto {
     public void setAdress(String nyAdress){
          
             try{
-                String sqlFraga = "UPDATE anstalld SET adress = " + nyAdress + " WHERE aid = '" + anstalldID + "'";
+                String sqlFraga = "UPDATE anstalld SET adress = '" +nyAdress + "' WHERE aid = '" + anstalldID + "'" ;
                 idb.update(sqlFraga);
             }
         

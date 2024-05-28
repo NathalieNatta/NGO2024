@@ -9,7 +9,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Israael, Natha
  */
 public class Meny extends javax.swing.JFrame {
 
@@ -27,8 +27,8 @@ public class Meny extends javax.swing.JFrame {
         
         Anstallning anstallning = new Anstallning(idb, inloggadAnv);
         //aid = "1";
-        aid = "6";
-        //aid = anstallning.getInloggadAID(inloggadAnv);
+        //aid = "6";
+        aid = anstallning.getInloggadAID(inloggadAnv);
         
         String atkomst = anstallning.getAtkomst(aid);
         namn = anstallning.getNamn(aid);
@@ -36,6 +36,7 @@ public class Meny extends javax.swing.JFrame {
         
         initComponents();
         lblInloggad.setText("Välkommen " + atkomst + " " + namn);
+        setAdminBtns();
     }
     public Meny(InfDB idb, String aid, String inget) {
         this.idb = idb;
@@ -43,8 +44,8 @@ public class Meny extends javax.swing.JFrame {
         
         Anstallning anstallning = new Anstallning(idb, aid, "");
         //aid = "1";
-        aid = "6";
-        //aid = anstallning.getInloggadAID(inloggadAnv);
+        //aid = "6";
+        this.aid = aid;
         
         String atkomst = anstallning.getAtkomst(aid);
         namn = anstallning.getNamn(aid);
@@ -52,9 +53,23 @@ public class Meny extends javax.swing.JFrame {
         
         initComponents();
         lblInloggad.setText("Välkommen " + atkomst + " " + namn);
+        
     }
     
-    
+    private void setAdminBtns(){
+        Anstallning anstallning = new Anstallning(idb, aid);
+        boolean admin = anstallning.getAdmin(aid);
+
+        if(admin)
+        {    
+            btnLand.setVisible(true);
+            //btnPartners.setVisible(true);
+        }else{
+            btnLand.setVisible(false);
+            //btnPartners.setVisible(false);
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,8 +82,12 @@ public class Meny extends javax.swing.JFrame {
 
         lblInloggad = new javax.swing.JLabel();
         btnKonto = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAnstallda = new javax.swing.JButton();
+        btnAvdelning = new javax.swing.JButton();
+        btnProjekt = new javax.swing.JButton();
+        btnLand = new javax.swing.JButton();
+        btnPartners = new javax.swing.JButton();
+        btnHallbarhetsmal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,17 +100,45 @@ public class Meny extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Anställda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAnstallda.setText("Anställda");
+        btnAnstallda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAnstalldaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Avdelning");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAvdelning.setText("Avdelning");
+        btnAvdelning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAvdelningActionPerformed(evt);
+            }
+        });
+
+        btnProjekt.setText("Projekt");
+        btnProjekt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektActionPerformed(evt);
+            }
+        });
+
+        btnLand.setText("Land");
+        btnLand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLandActionPerformed(evt);
+            }
+        });
+
+        btnPartners.setText("Partners");
+        btnPartners.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPartnersActionPerformed(evt);
+            }
+        });
+
+        btnHallbarhetsmal.setText("Hållbarhetsmål");
+        btnHallbarhetsmal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHallbarhetsmalActionPerformed(evt);
             }
         });
 
@@ -103,23 +150,42 @@ public class Meny extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInloggad)
-                    .addComponent(btnKonto)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(307, Short.MAX_VALUE))
+                    .addComponent(btnPartners)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnKonto)
+                            .addComponent(btnAnstallda)
+                            .addComponent(btnProjekt))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLand)
+                            .addComponent(btnAvdelning)
+                            .addComponent(btnHallbarhetsmal))))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblInloggad)
-                .addGap(40, 40, 40)
-                .addComponent(btnKonto)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnHallbarhetsmal))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKonto)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnstallda)
+                    .addComponent(btnAvdelning))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProjekt)
+                    .addComponent(btnLand))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPartners)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,19 +199,47 @@ public class Meny extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnKontoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAnstalldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnstalldaActionPerformed
         
-        AnstalldaAdmin anstalld = new AnstalldaAdmin(idb, aid);
-        anstalld.setVisible(true);
+        RedigeraAnstallda redigeraAnstallda = new RedigeraAnstallda(idb, aid);
+        redigeraAnstallda.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAnstalldaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAvdelningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvdelningActionPerformed
         
         AvdelningMeny avdelningM = new AvdelningMeny(idb, aid);
         avdelningM.setVisible(true);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAvdelningActionPerformed
+
+    private void btnProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektActionPerformed
+        
+        ProjektMeny projektMeny = new ProjektMeny(idb, aid);
+        projektMeny.setVisible(true);
+        
+    }//GEN-LAST:event_btnProjektActionPerformed
+
+    private void btnLandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLandActionPerformed
+        
+        LandMeny landMeny = new LandMeny(idb, aid);
+        landMeny.setVisible(true);
+        
+    }//GEN-LAST:event_btnLandActionPerformed
+
+    private void btnPartnersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartnersActionPerformed
+        
+        PartnersMeny partnersMeny = new PartnersMeny(idb, aid);
+        partnersMeny.setVisible(true);
+        
+    }//GEN-LAST:event_btnPartnersActionPerformed
+
+    private void btnHallbarhetsmalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHallbarhetsmalActionPerformed
+        
+        HallbarhetsmalMeny hallbarhetsmalMeny = new HallbarhetsmalMeny(idb, aid);
+        hallbarhetsmalMeny.setVisible(true);
+        
+    }//GEN-LAST:event_btnHallbarhetsmalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,9 +277,13 @@ public class Meny extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnstallda;
+    private javax.swing.JButton btnAvdelning;
+    private javax.swing.JButton btnHallbarhetsmal;
     private javax.swing.JButton btnKonto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLand;
+    private javax.swing.JButton btnPartners;
+    private javax.swing.JButton btnProjekt;
     private javax.swing.JLabel lblInloggad;
     // End of variables declaration//GEN-END:variables
 }

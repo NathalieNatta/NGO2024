@@ -28,6 +28,7 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         
         initComponents();
         setSynlighet("alla", false);
+        setStatiskaTF(false);
         tfEpost.setText(konto.getEpost());
         tfLosenord.setText(konto.getLosenord());
         tfAdress.setText(konto.getAdress());
@@ -105,6 +106,14 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         
     }
     
+    public void setStatiskaTF(boolean inteStatiska){
+        
+        tfEpost.setEditable(inteStatiska);
+        tfLosenord.setEditable(inteStatiska);
+        tfTelefonNummer.setEditable(inteStatiska);
+        tfAdress.setEditable(inteStatiska);
+    }
+    
     
     
     
@@ -159,6 +168,7 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         btnNyttTelefonNummerAvbryt = new javax.swing.JButton();
         btnNyttLosenordAvbryt = new javax.swing.JButton();
         btnNyEpostAvbryt = new javax.swing.JButton();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -278,6 +288,13 @@ public class Kontoinstallningar extends javax.swing.JFrame {
             }
         });
 
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -365,8 +382,9 @@ public class Kontoinstallningar extends javax.swing.JFrame {
                     .addComponent(btnNyAdressAvbryt)
                     .addComponent(btnNyttTelefonNummerAvbryt)
                     .addComponent(btnNyttLosenordAvbryt)
-                    .addComponent(btnNyEpostAvbryt))
-                .addGap(16, 16, 16))
+                    .addComponent(btnNyEpostAvbryt)
+                    .addComponent(btnTillbaka))
+                .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,27 +426,33 @@ public class Kontoinstallningar extends javax.swing.JFrame {
                     .addComponent(btnNyttTelefonNummer)
                     .addComponent(lblNyttTelefonNummer)
                     .addComponent(btnNyttTelefonNummerAvbryt))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAdress)
-                    .addComponent(btnAdress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNyAdressNr)
-                    .addComponent(lblNyAdressGata)
-                    .addComponent(lblNyAdressStad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfNyAdressNr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNyAdressGata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNyAdressStad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNyAdress)
-                    .addComponent(btnNyAdress)
-                    .addComponent(btnNyAdressAvbryt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAdress)
+                            .addComponent(btnAdress))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNyAdressNr)
+                            .addComponent(lblNyAdressGata)
+                            .addComponent(lblNyAdressStad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNyAdressNr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNyAdressGata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNyAdressStad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNyAdress)
+                            .addComponent(btnNyAdress)
+                            .addComponent(btnNyAdressAvbryt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblFelmeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTillbaka)
+                        .addContainerGap())))
         );
 
         pack();
@@ -494,15 +518,19 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         String nyAdressNr = tfNyAdressNr.getText();
         String nyAdressGata = tfNyAdressGata.getText();
         String nyAdressStad = tfNyAdressStad.getText();
-        String nyAdress = nyAdressNr + " " + nyAdressGata + ", " + nyAdressStad;
+        
          
-        if(nyAdressNr.isBlank() || nyAdressGata.isBlank() || nyAdressStad.isBlank()){
-            lblFelmeddelande.setText("Adressen är inte korrekt skriven");
-        }else{
+                    
+            String nyAdress = nyAdressNr + " " + nyAdressGata + ", " + nyAdressStad;
+            try {
             konto.setAdress(nyAdress);
             setSynlighet("adress", false);
             tfAdress.setText(nyAdress);
+        } catch (Exception ex){
+            lblFelmeddelande.setText("Det gick inte att uppdatera adressen");
+            System.out.println(ex.getMessage());
         }
+       
         
     }//GEN-LAST:event_btnNyAdressActionPerformed
 
@@ -535,6 +563,12 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         setSynlighet("adress", false);
         
     }//GEN-LAST:event_btnNyAdressAvbrytActionPerformed
+
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        Meny meny = new Meny(idb, anstalldID, "");
+        meny.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,6 +619,7 @@ public class Kontoinstallningar extends javax.swing.JFrame {
     private javax.swing.JButton btnNyttTelefonNummer;
     private javax.swing.JButton btnNyttTelefonNummerAvbryt;
     private javax.swing.JButton btnTelefonNummer;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JLabel lblAdress;
     private javax.swing.JLabel lblAtEpost;
     private javax.swing.JLabel lblAtNyEpost;
