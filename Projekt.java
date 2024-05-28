@@ -29,7 +29,7 @@ public class Projekt {
         //int anstalldIdInt = Integer.parseInt(anstalldID);
         //this.inloggadAnvandare = inloggadAnvandare;
         this.avdelning = getMinAvdelning(anstalldID);
-        //anstalld = new Anstallning(idb, anstalldID, "");
+        anstalld = new Anstallning(idb, anstalldID, "");
     }   
     public String getMinAvdelning(String aid)
         {
@@ -60,22 +60,23 @@ public class Projekt {
         }
         return projektID;
     
-    }   
+    }    
     
-    public String getLandID(String namn)
+    
+    public ArrayList<String> getProjektChefer()
         {
-        String landID = "";
-        
+        ArrayList<String> chef = new ArrayList<String>();
         try{ 
-            String sqlFraga = "SELECT lid from land where namn = '" + namn + "'";
-            landID = idb.fetchSingle(sqlFraga);
+            String sqlFraga = "SELECT projektchef from projekt";
+            chef = idb.fetchColumn(sqlFraga);
   
 
         } catch (InfException ex) {
             System.out.println(ex.getMessage());
         }
-        return landID;
-        }
+        return chef;
+    
+    }
     
     public ArrayList<HashMap<String,String>> getAllaProjekt()
         {
@@ -151,22 +152,7 @@ public class Projekt {
         return statuslista;
     }
     
-    public ArrayList<HashMap<String, String>> listAllPartnersInProjects(String aid) {
-          ArrayList<HashMap<String, String>> partnerlista = new ArrayList<>();
-          
-      try{
-    String sqlFraga = "Select partner.* from partner join ans_proj ap on partner.pid = ap.pid join anstalld a on ap.pid = a.aid where a.aid = '" + aid + "'";
-    System.out.println(sqlFraga);
-    ArrayList<HashMap<String, String>> partners = idb.fetchRows(sqlFraga);
     
-    partnerlista.addAll(partners);
-
-
-}  catch(InfException ex) {
-     System.out.println(ex.getMessage());
-} 
-      return partnerlista;
-}
     
     public ArrayList<HashMap<String, String>> getProjectsByDate(String avdelning){
             ArrayList<HashMap<String, String>> projektdatum = new ArrayList<>();
@@ -460,75 +446,9 @@ public class Projekt {
         }
     }
     
-    public void addPartner(int pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, int stad){
-        if(anstalld.getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "INSERT INTO partner(pid, namn, kontaktperson, kontaktepost, telefon, adress, branch, stad) VALUES('" + pid + "','" + namn + "','" + kontaktperson + "','" + kontaktepost + "','" + telefon + "','" + adress + "','" + branch + "','" + stad + "','";
-                idb.insert(sqlFraga);
-                System.out.println("Partneruppgifter har lagts till");
-            } catch (InfException ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan lägga till partners");
-        }
-    }
     
-    public void changePartner(String pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, String stad) {
-        if(anstalld.getAdmin(anstalldID)){
-            try{
-                String sqlFraga = "UPDATE partner SET namn = '" + namn + "', kontaktperson = '" + kontaktperson + "', kontaktepost = '" + kontaktepost + "', telefon = '" + telefon + "', adress = '" + adress + "', branch = '" + branch + "', stad = '" + stad + "WHERE pid = '" + pid + "'";
-                idb.update(sqlFraga);
-                System.out.println("Partneruppgifter har ändrats");
-            } catch (InfException ex){
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Endast administratörer kan ändra partners");
-        }
-    }
-    
-        public void removePartner(int pid){
-            if(anstalld.getAdmin(anstalldID)){
-                try{
-                    String sqlFraga = "DELETE from partner WHERE pid = " + pid;
-                    idb.delete(sqlFraga);
-                    System.out.println("Partnern har tagits bort");
-                } catch (InfException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan ta bort partners");
-            }
-        }
         
-        public void addLand(String lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
-            if(anstalld.getAdmin(anstalldID)){
-                try {
-                    String sqlFraga = "INSERT INTO land(lid, namn, sprak, valuta, tidszon, politisk_struktur, ekonomi) VALUES ('" + lid + "','" + namn + "','" + sprak + "','" + valuta + "','" + tidszon + "','" + politisk_struktur + "','" + ekonomi + "','";
-                    idb.insert(sqlFraga);
-                    System.out.println("Landet har lagts till");
-                } catch (InfException ex){
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan lägga till ett land");
-            }
-        }
         
-        public void changeLand(String lid, String namn, String sprak, Double valuta, String tidszon, String politisk_struktur, String ekonomi){
-            if(anstalld.getAdmin(anstalldID)){
-                try{
-                    String sqlFraga = "UPDATE land SET namn = '" + namn + "', språk = '" + sprak + "', valuta = '" + valuta + "', tidszon = '" + tidszon + "', politisk struktur = '" + politisk_struktur + "', ekonomi = '" + ekonomi + "WHERE lid = " + lid;
-                    idb.update(sqlFraga);
-                    System.out.println("Landets uppgifter har ändrats");
-                } catch (InfException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                System.out.println("Endast administratörer kan ändra länder");
-            }
-        }
     
     
 }
