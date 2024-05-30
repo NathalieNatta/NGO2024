@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblAngeProjektIDPartner" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="tfAngeProjektPartnerID" min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblAngePartnerID" min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tfPartnerID" min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblNyttProjektNamn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="tfProjektNamn" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblNyBeskrivning" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tfStartdatum" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="tfBeskrivning" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="tfSlutdatum" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="tfKostnad" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="tfStatus" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnChangeBeskrivning" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeProjektNamn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="lblRubrikLaggTillPartner" min="-2" pref="95" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="lblRubrikLaggTillHandLaggare" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="334" pref="334" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAngeAnstalldID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAngeProjektIDHandLaggare" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tfAngeAnstalldIDHandlaggare" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="tfAngeProjektIDHandLaggare" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="btnLaggTillPartner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnTabortPartner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnLaggTillHandLaggare" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblRubrikAndraMinaProjekt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                              <Component id="lblRubrikProjektChef" min="-2" pref="83" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblNyttLand" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="lblAngeProjektID" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNyttSlutDatum" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNyKostnad" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="lblNyPrioritering" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnChangeKostnad" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnChangeSlutdatum" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="tfLand" min="-2" pref="71" max="-2" attributes="0"/>
+                                                      <Component id="tfAngeProjektID" min="-2" pref="71" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                  <Component id="tfPrioritering" min="-2" pref="71" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnChangeStatus" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnChangePrioritering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnChangeLand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblNyttStartDatum" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                                  <Component id="btnChangeStartdatum" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblNyStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                      <Component id="lblFelmeddelande" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="lblRubrikStatistik" min="-2" pref="189" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="btnTaBortHandlaggare" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnSeStatistik" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="lblTotalKostnadProjekt" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="tfKostnadStatistik" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblRubrikProjektChef" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRubrikAndraMinaProjekt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="lblRubrikLaggTillHandLaggare" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRubrikLaggTillPartner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Component id="lblRubrikStatistik" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblAngeAnstalldID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAngePartnerID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfPartnerID" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tfAngeAnstalldIDHandlaggare" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTotalKostnadProjekt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfKostnadStatistik" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tfAngeProjektIDHandLaggare" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAngeProjektIDHandLaggare" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tfAngeProjektPartnerID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAngeProjektIDPartner" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnLaggTillPartner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTabortPartner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNyBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnChangeBeskrivning" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tfStartdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyttStartDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnChangeStartdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tfSlutdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyttSlutDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnChangeSlutdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tfProjektNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyttProjektNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnChangeProjektNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnLaggTillHandLaggare" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSeStatistik" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnTaBortHandlaggare" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblNyKostnad" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnChangeKostnad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfKostnad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblNyStatus" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tfStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnChangeStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblFelmeddelande" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNyPrioritering" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPrioritering" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnChangePrioritering" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNyttLand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfLand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnChangeLand" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblAngeProjektID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfAngeProjektID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblRubrikProjektChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Projektchef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLaggTillPartner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg Till Partner"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaggTillPartnerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLaggTillHandLaggare">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg Till Handl&#xe4;ggare"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaggTillHandLaggareActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSeStatistik">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="se statistik"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeStatistikActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTillbaka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFelmeddelande">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikAndraMinaProjekt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra Mina Projekt"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfProjektNamn">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfStartdatum">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfStartdatumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSlutdatum">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfKostnad">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfStatus">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfPrioritering">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPrioriteringActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfLand">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAngeProjektID">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfAngeProjektIDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfBeskrivning">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny beskrivning:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttStartDatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt startdatum:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttSlutDatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt slutdatum:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttProjektNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt projektnamn:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyKostnad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny kostnad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyPrioritering">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ny prioritering:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNyttLand">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nytt land:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeProjektID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange projektID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeProjektNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeProjektNamnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeBeskrivning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeBeskrivningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeStartdatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeStartdatumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeSlutdatum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeSlutdatumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeKostnad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeKostnadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeStatusActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangePrioritering">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePrioriteringActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnChangeLand">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeLandActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikLaggTillPartner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg till Partner "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfPartnerID">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAngeProjektPartnerID">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngePartnerID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange PartnerID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeProjektIDPartner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange ProjektID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikLaggTillHandLaggare">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#xe4;gg till Handl&#xe4;ggare"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAngeAnstalldIDHandlaggare">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAngeProjektIDHandLaggare">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeAnstalldID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange Anst&#xe4;lldID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeProjektIDHandLaggare">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ange ProjektID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRubrikStatistik">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="F&#xe5; ut kostnadsstatistik f&#xf6;r projekt"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfKostnadStatistik">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTotalKostnadProjekt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total Kostnad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTabortPartner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ta bort Partner"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTabortPartnerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTaBortHandlaggare">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ta bort Handl&#xe4;ggare"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaBortHandlaggareActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
