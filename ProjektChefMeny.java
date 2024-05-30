@@ -337,7 +337,7 @@ public class ProjektChefMeny extends javax.swing.JFrame {
         String anstalldIDString = tfAngeAnstalldIDHandlaggare.getText();
         String projektIDString = tfAngeProjektIDHandLaggare.getText();
         
-        if(anstalldID.isEmpty()|| projektIDString.isEmpty()){
+        if(anstalldIDString.isEmpty()|| projektIDString.isEmpty()){
         lblFelmeddelande.setText("Vänligen fyll i både anställdID och projektID");
         lblFelmeddelande.setVisible(true);
         return;
@@ -346,12 +346,20 @@ public class ProjektChefMeny extends javax.swing.JFrame {
         int pid = Integer.parseInt(projektIDString);
         int aid = Integer.parseInt(anstalldIDString);
         int projektchef = Integer.parseInt(anstalldID);
-        boolean success = projekt.addHandlaggareTillProjekt( projektchef,  pid,  aid);
+        
+        if (Validering.isValidNummer(projektIDString) && Validering.isValidNummer(anstalldIDString)
+                && Validering.isValidProjektchef(projektchef, pid, idb)) {
+        
+        boolean success = projekt.addHandlaggareTillProjekt(projektchef, pid, aid);
         
         if(success){
             lblFelmeddelande.setText("Handläggare tillagd för projekt: " + pid);
         } else {
             lblFelmeddelande.setText("Du är inte projektchef över detta projekt");
+        }
+        } else {
+        lblFelmeddelande.setText("Ogiltigt projektID, anställdID eller otillåten åtgärd");
+        
         }
     
     
@@ -367,7 +375,7 @@ public class ProjektChefMeny extends javax.swing.JFrame {
         String anstalldIDString = tfAngeAnstalldIDHandlaggare.getText();
         String projektIDString = tfAngeProjektIDHandLaggare.getText();
         
-        if(anstalldID.isEmpty()|| projektIDString.isEmpty()){
+        if(anstalldIDString.isEmpty()|| projektIDString.isEmpty()){
         lblFelmeddelande.setText("Vänligen fyll i både anställdID och projektID");
         lblFelmeddelande.setVisible(true);
         return;
@@ -376,14 +384,20 @@ public class ProjektChefMeny extends javax.swing.JFrame {
         int pid = Integer.parseInt(projektIDString);
         int aid = Integer.parseInt(anstalldIDString);
         int projektchef = Integer.parseInt(anstalldID);
-        boolean success = projekt.removeHandlaggareFromProjekt( projektchef,  pid,  aid);
+        
+        if (Validering.isValidNummer(projektIDString) && Validering.isValidNummer(anstalldIDString)
+                && Validering.isValidProjektchef(projektchef, pid, idb)) {
+        
+        boolean success = projekt.removeHandlaggareFromProjekt(projektchef, pid, aid);
         
         if(success){
             lblFelmeddelande.setText("Handläggare borttagen för projekt: " + pid);
         } else {
             lblFelmeddelande.setText("Du är inte projektchef över detta projekt");
         }
-    
+    } else {
+            lblFelmeddelande.setText("Ogiltigt projektID, anställdID eller otillåten åtgärd");
+        }
     
     }catch (NumberFormatException e){
         lblFelmeddelande.setText("ProjektID och anställdID  måste vara ett nummer");
@@ -825,10 +839,10 @@ public class ProjektChefMeny extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAngeAnstalldID)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAngePartnerID)
-                            .addComponent(tfPartnerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfPartnerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAngeAnstalldID)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfAngeAnstalldIDHandlaggare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -893,9 +907,8 @@ public class ProjektChefMeny extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNyStatus)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnChangeStatus))
+                    .addComponent(btnChangeStatus)
+                    .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFelmeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

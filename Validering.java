@@ -4,7 +4,7 @@
  */
 package ngo2024;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -42,28 +42,14 @@ public class Validering {
         
         return epost;
     }
-    
-    public boolean arProjektChef(String aid){
-        
-        boolean arChef = false;
-        
-        ArrayList<String> chefer = new ArrayList<String>();
-        try{ 
-            String sqlFraga = "SELECT projektchef from projekt";
-            chefer = idb.fetchColumn(sqlFraga);
-  
-
-        } catch (InfException ex) {
-            System.out.println(ex.getMessage());
-        }
-        for( String chef : chefer ){
-            if(chef.equals(aid)){
-                arChef = true;
-            }
-        }
-        return arChef;
+    public static boolean isValidNummer(String input){
+        return input.matches("\\d+"); //kontrollerar om input är heltal.
     }
-    
-    
-    
+    public static boolean isValidProjektchef(int projektchef, int pid, InfDB idb)throws InfException {
+        String sqlFraga = "SELECT projektchef FROM projekt WHERE pid = " + pid;
+            HashMap<String, String> projektInfo = idb.fetchRow(sqlFraga);
+            
+            return projektInfo !=null  && projektInfo.get("projektchef").equals(String.valueOf(projektchef));
+    }
 }
+
