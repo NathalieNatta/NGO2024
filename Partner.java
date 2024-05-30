@@ -19,6 +19,7 @@ public class Partner {
     private String anstalldID;
     private Anstallning anstalld;
     private Projekt projekt;
+    private Validering validering;
 
     public Partner(InfDB idb, String aid) {
 
@@ -26,6 +27,7 @@ public class Partner {
         anstalldID = aid;
         anstalld = new Anstallning(idb, anstalldID, "");
         projekt = new Projekt(idb, anstalldID);
+        validering = new Validering(idb, anstalldID);
 
     }
 
@@ -148,8 +150,106 @@ public class Partner {
         return partners;
     }
 
-    public void changePartner(String pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, String stad) {
+    public void changePartnerNamn(String pid, String namn) {
         if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET namn = '" + namn + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerKontaktperson(String pid, String kontaktperson) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET kontaktperson = '" + kontaktperson + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerKontaktepost(String pid, String kontaktepost) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET kontaktepost = '" + kontaktepost + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerTelefon(String pid, String telefon) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET telefon = '" + telefon + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerAdress(String pid, String adress) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET adress = '" + adress + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerBranch(String pid, String branch) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET branch = '" + branch + "' WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    public void changePartnerStad(String pid, String stad) {
+        if (anstalld.getAdmin(anstalldID)) {
+            try {
+                String sqlFraga = "UPDATE partner SET stad = '" + stad + "WHERE pid = '" + pid + "'";
+                idb.update(sqlFraga);
+                System.out.println("Partneruppgifter har ändrats");
+            } catch (InfException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Endast administratörer kan ändra partners");
+        }
+    }
+    
+    /*public void changePartner(String pid, String namn, String kontaktperson, String kontaktepost, String telefon, String adress, String branch, String stad) {
+        if (validering.getAdmin(anstalldID)) {
             try {
                 String sqlFraga = "UPDATE partner SET namn = '" + namn + "', kontaktperson = '" + kontaktperson + "', kontaktepost = '" + kontaktepost + "', telefon = '" + telefon + "', adress = '" + adress + "', branch = '" + branch + "', stad = '" + stad + "WHERE pid = '" + pid + "'";
                 idb.update(sqlFraga);
@@ -160,7 +260,7 @@ public class Partner {
         } else {
             System.out.println("Endast administratörer kan ändra partners");
         }
-    }
+    }*/
 
     public void removePartner(String pid) {
         if (anstalld.getAdmin(anstalldID)) {

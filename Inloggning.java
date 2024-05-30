@@ -9,7 +9,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Israael, Natha
  */
 public class Inloggning extends javax.swing.JFrame {
 
@@ -121,7 +121,6 @@ public class Inloggning extends javax.swing.JFrame {
         //TEMP
         new Meny(idb, epost).setVisible(true);
         this.setVisible(false);
-        return;
         
        
         /*if(epost.isBlank() || !aT ){

@@ -24,68 +24,62 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="btnAddLand" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnChangeLand" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAddSprak" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="lblAddValuta" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="lblTidzon" min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAddNamn" min="-2" pref="64" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="lblPolitiskStruktur" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEkonomi" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tfEkonomi" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                          <Component id="tfAddSprak" min="-2" pref="196" max="-2" attributes="0"/>
+                          <Component id="tfValuta" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="tfAddTidszon" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                              <Component id="tfAddPolitiskStruktur" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="tfAddNamn" min="-2" pref="196" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnAction" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="523" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblAddSprak" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="lblAddValuta" min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="lblTidzon" min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblRubrik" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblAddNamn" min="-2" pref="64" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Component id="lblPolitiskStruktur" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblEkonomi" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfAddSprak" min="-2" pref="196" max="-2" attributes="0"/>
-                                  <Component id="tfValuta" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
-                                  <Component id="tfAddTidszon" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
-                                  <Component id="tfAddPolitiskStruktur" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="tfAddNamn" min="-2" pref="196" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnAction" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tfAddLid" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tfEkonomi" alignment="0" pref="196" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="lblAddLid" min="-2" pref="53" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Component id="btnAddLand" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnChangeLand" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,14 +124,9 @@
                   <Component id="tfEkonomi" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblEkonomi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAddLid" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfAddLid" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -231,16 +220,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Felmeddelande"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAddLid">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Land-ID"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfAddLid">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfAddLidActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

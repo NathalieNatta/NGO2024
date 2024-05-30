@@ -21,6 +21,8 @@ public class Projekt {
     //private String inloggadAnvandare;
     private String avdelning;
     private Anstallning anstalld;
+    private Validering validering;
+    
     
     
     public Projekt(InfDB idb, String aid){
@@ -30,6 +32,7 @@ public class Projekt {
         //this.inloggadAnvandare = inloggadAnvandare;
         this.avdelning = getMinAvdelning(anstalldID);
         anstalld = new Anstallning(idb, anstalldID, "");
+        validering = new Validering(idb, anstalldID);
     }   
     public String getMinAvdelning(String aid)
         {
@@ -61,6 +64,7 @@ public class Projekt {
         return projektID;
     
     }    
+    
     
     
     public ArrayList<String> getProjektChefer()
@@ -177,8 +181,8 @@ public class Projekt {
             
             if(projektInfo !=null){
                 String namnUppdatering = "UPDATE projekt SET projektnamn = '" + nyttProjektNamn + "where pid = '"+ pid + "'";
-            idb.update(namnUppdatering);
-            System.out.println("Projektnamn ändrat till" + nyttProjektNamn);
+                idb.update(namnUppdatering);
+                System.out.println("Projektnamn ändrat till" + nyttProjektNamn);
             } else {
                 System.out.println("Projektchefen är inte chef över detta projekt");
             }
@@ -209,6 +213,27 @@ public class Projekt {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void changeProjektChef(int pid, String projektchef) {
+        try{
+        
+            String sqlFraga = "SELECT projektchef FROM projekt WHERE pid = '" + pid + "'";
+            HashMap<String, String> projektInfo = idb.fetchRow(sqlFraga);
+            
+            if(projektInfo != null) {
+                String projektchefUppdatering = "UPDATE projekt SET projektchef = '" + projektchef + "' where pid = '" + pid + "'";
+                idb.update(projektchefUppdatering);
+                System.out.println("Beskrivning för projekt har ändrats" + projektchef);
+            }else {
+            System.out.println("Projektchefen är inte chef över detta projekt");
+            }
+            
+        
+        } catch (InfException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    
     public void changeProjektStartdatum(int projektchef, int pid, Date startdatum){
         try{
             String sqlFraga = "SELECT startdatum WHERE projektchef = '" + projektchef + "AND pid = '" + pid + "'";
@@ -406,7 +431,7 @@ public class Projekt {
         return totalKostnad;
     }
     
-     public void addProjekt(String pid, String projektnamn, String beskrivning, Date startdatum, Date slutdatum, Double kostnad, String status, String prioritet, String projektchef, String land){
+     public void addProjekt(String pid, String projektnamn, String beskrivning, Date startdatum, Date slutdatum, Double kostnad, String status, String prioritet, String projektchef, int land){
         if(anstalld.getAdmin(anstalldID)){
             try {
                 String sqlFraga = "INSERT INTO projekt(pid, projektnamn, beskrivning, startdatum ,slutdatum, kostnad, status, prioritet, projektchef, land)VALUES ('"+ pid + "','"+ projektnamn + "','" + beskrivning + "','" + startdatum + "','"+ slutdatum + "','" + kostnad + "','" + status + "','" + prioritet + "','" + projektchef + "','" + land + "','";

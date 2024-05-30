@@ -518,20 +518,16 @@ public class Kontoinstallningar extends javax.swing.JFrame {
         String nyAdressNr = tfNyAdressNr.getText();
         String nyAdressGata = tfNyAdressGata.getText();
         String nyAdressStad = tfNyAdressStad.getText();
-        
+        String nyAdress = nyAdressNr + " " + nyAdressGata + ", " + nyAdressStad;
+        System.out.println(nyAdress);
          
-                    
-            String nyAdress = nyAdressNr + " " + nyAdressGata + ", " + nyAdressStad;
-            try {
+        
             konto.setAdress(nyAdress);
             setSynlighet("adress", false);
             tfAdress.setText(nyAdress);
-        } catch (Exception ex){
-            lblFelmeddelande.setText("Det gick inte att uppdatera adressen");
-            System.out.println(ex.getMessage());
-        }
-       
         
+        
+       
     }//GEN-LAST:event_btnNyAdressActionPerformed
 
     private void btnNyEpostAvbrytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyEpostAvbrytActionPerformed

@@ -57,7 +57,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -122,14 +122,22 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnChange" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnChange2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="264" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnNyttNamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyKontaktperson" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyKontaktepost" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyTelefon" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyAdress" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyBranch" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyStad" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -160,7 +168,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="135" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -183,7 +191,7 @@
                   <Component id="btnAddPartner" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="223" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="219" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblAddPartner" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -193,7 +201,6 @@
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnChange" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnChange2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -207,6 +214,7 @@
                   <Component id="tfNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyttNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyttNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyttNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -214,6 +222,7 @@
                   <Component id="tfKontaktPerson" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyKontaktperson" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyKontaktperson" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyKontaktperson" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -221,15 +230,17 @@
                   <Component id="tfKontaktEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyKontaktEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyKontaktEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyKontaktepost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tfTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyAdressNr" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyAdressGata" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -243,6 +254,7 @@
                   <Component id="lblNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfAdress" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyAdress" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -250,6 +262,7 @@
                   <Component id="lblBranch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyBranch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyBranch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyBranch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -257,8 +270,9 @@
                   <Component id="tfStad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyStad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNyStad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyStad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblFelmeddelande" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
@@ -550,12 +564,60 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletePiPActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnChange2">
+    <Component class="javax.swing.JButton" name="btnNyttNamn">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChange2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyttNamnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyKontaktperson">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyKontaktpersonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyKontaktepost">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyKontaktepostActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyTelefon">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyTelefonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyAdressActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyBranch">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyBranchActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyStad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyStadActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

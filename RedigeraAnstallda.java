@@ -8,28 +8,33 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Israael, Natha
  */
 public class RedigeraAnstallda extends javax.swing.JFrame {
 
     private InfDB idb;
     private String anstalldID;
     private Anstallning anstalld;
+    private Avdelning avdelning;
     
     public RedigeraAnstallda(InfDB idb, String aid) {
         
         this.idb = idb;
         anstalldID = aid;
         anstalld = new Anstallning(idb, aid, "");
+        avdelning = new Avdelning(idb, anstalldID);
         
         initComponents();
         
         setSynlighet("reset", false);
         lblFelmeddelande.setVisible(false);
+        fyllCbAddAvdelning();
         
     }
     
@@ -63,7 +68,7 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
             btnAddRandomLosenord.setVisible(synlighet);
             
             tfAddAdress.setVisible(synlighet);
-            tfAddAvdelning.setVisible(synlighet);
+            cbAddAvdelning.setVisible(synlighet);
             tfAddEfternamn.setVisible(synlighet);
             tfAddEpost.setVisible(synlighet);
             tfAddFornamn.setVisible(synlighet);
@@ -99,7 +104,7 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
             btnAddRandomLosenord.setVisible(synlighet);
             
             tfAddAdress.setVisible(synlighet);
-            tfAddAvdelning.setVisible(synlighet);
+            cbAddAvdelning.setVisible(synlighet);
             tfAddEfternamn.setVisible(synlighet);
             tfAddEpost.setVisible(synlighet);
             tfAddFornamn.setVisible(synlighet);
@@ -128,6 +133,16 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         
     }
     
+    private void fyllCbAddAvdelning(){
+        
+        ArrayList<HashMap<String, String>> avdelningar = avdelning.getAvdelningar();
+        
+        for(HashMap<String, String> avdelning1 : avdelningar){
+            String namn = avdelning1.get("namn");
+            cbAddAvdelning.addItem(namn);
+        }
+        
+    }
     
 
     /**
@@ -170,9 +185,10 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         btnAddRandomLosenord = new javax.swing.JButton();
         lblAddTelefon = new javax.swing.JLabel();
         tfAddTelefon = new javax.swing.JTextField();
-        tfAddAvdelning = new javax.swing.JTextField();
         lblAddAvdelning = new javax.swing.JLabel();
         lblDeleteAtEpost = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        cbAddAvdelning = new javax.swing.JComboBox<>();
 
         lblArDuSaker.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblArDuSaker.setText("jLabel1");
@@ -304,6 +320,15 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
 
         lblDeleteAtEpost.setText("@example.com");
 
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        cbAddAvdelning.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj Avdelning" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -339,7 +364,7 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
                                         .addComponent(tfAddLosenord)
                                         .addComponent(tfAddAdress)
                                         .addComponent(tfAddTelefon)
-                                        .addComponent(tfAddAvdelning)))
+                                        .addComponent(cbAddAvdelning, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(lblDeleteEpost)
                                     .addGap(3, 3, 3)
@@ -364,7 +389,9 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblFelmeddelande)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,10 +415,11 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lblAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddFornamn)
-                    .addComponent(tfAddFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfAddFornamn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblAddFornamn)
+                        .addComponent(btnAdd)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfAddEfternamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,21 +436,27 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
                     .addComponent(btnAddRandomLosenord)
                     .addComponent(tfAddLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddLosenord))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddAdress)
-                    .addComponent(tfAddAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfAddTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddTelefon))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfAddAvdelning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddAvdelning))
-                .addGap(38, 38, 38)
-                .addComponent(lblFelmeddelande)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAddAdress)
+                            .addComponent(tfAddAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfAddTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAddTelefon))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAddAvdelning)
+                            .addComponent(cbAddAvdelning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(lblFelmeddelande)
+                        .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -504,11 +538,11 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         String losenord = tfAddLosenord.getText();
         String adress = tfAddAdress.getText();
         String telefon = tfAddTelefon.getText();
-        String avdelning = tfAddAvdelning.getText();
+        String avdelning1 = (String) cbAddAvdelning.getSelectedItem();
         String aid = anstalld.setAID();
         String dagensDatum = getDagensDatum();
         
-        anstalld.addAnstalld(aid, fornamn, efternamn, adress, epost, telefon, dagensDatum, losenord, avdelning);
+        anstalld.addAnstalld(aid, fornamn, efternamn, adress, epost, telefon, dagensDatum, losenord, avdelning1);
         
         setSynlighet("reset", false);
         
@@ -519,6 +553,12 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
         setSynlighet("reset", false);
         
     }//GEN-LAST:event_btnDeleteAvbrytActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Meny meny = new Meny(idb,anstalldID, "");
+        meny.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,6 +606,8 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteAvbryt;
     private javax.swing.JButton btnValAdd;
     private javax.swing.JButton btnValDelete;
+    private javax.swing.JComboBox<String> cbAddAvdelning;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jfArDuSaker;
     private javax.swing.JLabel lblAdd;
     private javax.swing.JLabel lblAddAdress;
@@ -583,7 +625,6 @@ public class RedigeraAnstallda extends javax.swing.JFrame {
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblRubrik;
     private javax.swing.JTextField tfAddAdress;
-    private javax.swing.JTextField tfAddAvdelning;
     private javax.swing.JTextField tfAddEfternamn;
     private javax.swing.JTextField tfAddEpost;
     private javax.swing.JTextField tfAddFornamn;

@@ -8,7 +8,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Natha, Israael
  */
 public class NGO2024 {
 

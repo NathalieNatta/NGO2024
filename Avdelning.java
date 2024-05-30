@@ -13,19 +13,21 @@ import java.util.Random;
 
 /**
  *
- * @author natha
+ * @author natha, Israael, JillWithJ
  */
 public class Avdelning {
     private InfDB idb;
     private String anstalldID;
     private Anstallning anstallning;
     private String avdelning;
+    private Validering validering;
     
     public Avdelning(InfDB idb , String aid) {
             this.idb = idb;
             anstalldID = aid;
             anstallning = new Anstallning(idb, anstalldID);
             avdelning = anstallning.getAvdelning(anstalldID);
+            validering = new Validering(idb, anstalldID);
     
 }
     

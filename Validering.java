@@ -4,11 +4,12 @@
  */
 package ngo2024;
 
+import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Natha, Israael
  */
 public class Validering {
     
@@ -41,5 +42,28 @@ public class Validering {
         
         return epost;
     }
+    
+    public boolean arProjektChef(String aid){
+        
+        boolean arChef = false;
+        
+        ArrayList<String> chefer = new ArrayList<String>();
+        try{ 
+            String sqlFraga = "SELECT projektchef from projekt";
+            chefer = idb.fetchColumn(sqlFraga);
+  
+
+        } catch (InfException ex) {
+            System.out.println(ex.getMessage());
+        }
+        for( String chef : chefer ){
+            if(chef.equals(aid)){
+                arChef = true;
+            }
+        }
+        return arChef;
+    }
+    
+    
     
 }

@@ -117,7 +117,7 @@ public class Konto {
     public void setAdress(String nyAdress){
          
             try{
-                String sqlFraga = "UPDATE anstalld SET adress = '" +nyAdress + "' WHERE aid = '" + anstalldID + "'" ;
+                String sqlFraga = "UPDATE anstalld SET adress = '" + nyAdress + "' WHERE aid = '" + anstalldID + "'";
                 idb.update(sqlFraga);
             }
         
@@ -129,7 +129,7 @@ public class Konto {
     public void setTelefonNummer(String nyttTelefonNummer){
                 
         try{
-            String sqlFraga = "UPDATE anstalld SET telefon = " + nyttTelefonNummer + " WHERE aid = '" + anstalldID + "'";
+            String sqlFraga = "UPDATE anstalld SET telefon = '" + nyttTelefonNummer + "' WHERE aid = '" + anstalldID + "'";
             idb.update(sqlFraga);
         }
         

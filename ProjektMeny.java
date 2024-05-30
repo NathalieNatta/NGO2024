@@ -25,6 +25,10 @@ public class ProjektMeny extends javax.swing.JFrame {
     private Projekt projekt;
     private Partner partner;
     private String minAvdelning;
+    private Validering validering;
+    private int anstalldIdInt; 
+    private Land land;
+    private Anstallning anstalld;
     
     public ProjektMeny(InfDB idb, String aid) {
         
@@ -32,7 +36,11 @@ public class ProjektMeny extends javax.swing.JFrame {
         anstalldID = aid;
         projekt = new Projekt(idb, anstalldID);
         partner = new Partner(idb, anstalldID);
+        validering = new Validering(idb, anstalldID);
         minAvdelning = projekt.getMinAvdelning(anstalldID);
+        anstalldIdInt = Integer.parseInt(anstalldID);
+        land = new Land(idb, anstalldID);
+        anstalld = new Anstallning(idb, anstalldID);
         
         initComponents();
         //setSynlighet("alla", false);
@@ -157,31 +165,6 @@ public class ProjektMeny extends javax.swing.JFrame {
         String kostnadString = Integer.toString(kostnadInt);
         taProjekt.setText("Totala kostnaden för dina projekt är: " + kostnadString + "kr.");
     }
-
-
-    /*private void visaDatum(){
-
-        String avdelning = projekt.getMinAvdelning(anstalldID);
-        ArrayList<HashMap<String, String>> projektDatum = projekt.getProjectsByDate(avdelning);
-        
-        String datum = 
-        
-        StringBuilder sb = new StringBuilder();
-        String header = String.format("%-10s %-20s %-35s %-15s %-15s %-10s %-20s %-15s %-15s %-15s\n", "ProjektID", "Namn", "Beskrivning", "Startdatum", "Slutdatum", "Kostnad", "Status", "Prioritet", "Projektchef", "Land");
-        sb.append(header);
-        sb.append("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-        
-        for(HashMap<String, String> projekt1 : projektDatum){
-            String startdatum = projekt1.get("startdatum");
-            if(datum >= startdatum ){
-                for (HashMap<String, String> projekt2 : projektDatum) {
-                String row = String.format("%-10s %-20s %-35s %-15s %-15s %-10s %-20s %-15s %-15s %-15s\n", projekt2.get("pid"), projekt2.get("projektnamn"), projekt2.get("beskrivning"), projekt2.get("startdatum"), projekt2.get("slutdatum"), projekt2.get("kostnad"), projekt2.get("status"), projekt2.get("prioritet"), projekt2.get("projektchef"), projekt2.get("land"));
-                sb.append(row);
-                }
-            }
-        }
-        taProjekt.setText(sb.toString());
-    }*/
     
     private void fyllDatumC(){
         
@@ -242,22 +225,6 @@ public class ProjektMeny extends javax.swing.JFrame {
         return date;
     }
     
-    private void redigeraProjekt(Date startdatum, Date slutdatum){
-                
-        String projektnamn = tfProjektNamn.getText();
-        String pid = projekt.getProjektID(projektnamn);
-        String beskrivning = tfProjektBeskrivning.getText();
-        int kostnadInt = Integer.parseInt(tfProjektKostnad.getText());
-        double kostnad = kostnadInt;
-        String status = tfProjektStatus.getText();
-        String prioritet = tfProjektPrioritet.getText();
-        String projektchef = tfProjektProjektChef.getText();
-        String land = tfProjektLand.getText();
-        
-        projekt.changeProjekt(pid, projektnamn, beskrivning, startdatum, slutdatum, kostnad, status, prioritet, projektchef, land);
-        
-    }
-    
     private void addProjekt(Date startdatum, Date slutdatum){
         
         String projektnamn = tfProjektNamn.getText();
@@ -268,9 +235,11 @@ public class ProjektMeny extends javax.swing.JFrame {
         String status = tfProjektStatus.getText();
         String prioritet = tfProjektPrioritet.getText();
         String projektchef = tfProjektProjektChef.getText();
-        String land = tfProjektLand.getText();
+        String landString = tfProjektNyttLand.getText();
+        String landID = land.getLandID(landString);
+        int land1 = Integer.parseInt(landID);
         
-        projekt.addProjekt(pid, projektnamn, beskrivning, startdatum, slutdatum, kostnad, status, prioritet, projektchef, land);
+        projekt.addProjekt(pid, projektnamn, beskrivning, startdatum, slutdatum, kostnad, status, prioritet, projektchef, land1);
     }
     
    
@@ -286,7 +255,50 @@ public void fyllCbAllaProjekt(){
 
         
 }
+
+private void setSynlighet(String vilken, boolean synlighet){
     
+    if(vilken.equals("changeBtn")){
+        
+        lblProjektNyBeskrivning.setVisible(synlighet);
+        lblProjektNyKostnad.setVisible(synlighet);
+        lblProjektNyPrioritet.setVisible(synlighet);
+        lblProjektNyProjektChef.setVisible(synlighet);
+        lblProjektNyStatus.setVisible(synlighet);
+        lblProjektNyttLand.setVisible(synlighet);
+        lblProjektNyttNamn.setVisible(synlighet);
+        lblProjektNyttSlutDatum.setVisible(synlighet);
+        lblProjektNyttStartDatum.setVisible(synlighet);
+        
+        tfProjektNyBeskrivning.setVisible(synlighet);
+        tfProjektNyKostnad.setVisible(synlighet);
+        tfProjektNyPrioritet.setVisible(synlighet);
+        tfProjektNyProjektChef.setVisible(synlighet);
+        tfProjektNyStatus.setVisible(synlighet);
+        tfProjektNyttLand.setVisible(synlighet);
+        tfProjektNyttNamn.setVisible(synlighet);
+        tfProjektNyttSlutDatum.setVisible(synlighet);
+        tfProjektNyttStartDatum.setVisible(synlighet);
+        
+        btnProjektNyBeskrivning.setVisible(synlighet);
+        btnProjektNyKostnad.setVisible(synlighet);
+        btnProjektNyPrioritet.setVisible(synlighet);
+        btnProjektNyProjektChef.setVisible(synlighet);
+        btnProjektNyStatus.setVisible(synlighet);
+        btnProjektNyttLand.setVisible(synlighet);
+        btnProjektNyttNamn.setVisible(synlighet);
+        btnProjektNyttSlutDatum.setVisible(synlighet);
+        btnProjektNyttStartDatum.setVisible(synlighet);
+    }
+}
+    
+private void projektChefBtns(){
+    
+    boolean arChef = validering.arProjektChef(anstalldID);
+    if(arChef){
+        //visa dessa knappar, annars inte
+    }
+}
 
 
 
@@ -345,7 +357,33 @@ public void fyllCbAllaProjekt(){
         lblDatumTill = new javax.swing.JLabel();
         cbDatumFrom = new javax.swing.JComboBox<>();
         cbDatumTill = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblProjektNyttNamn = new javax.swing.JLabel();
+        lblProjektNyBeskrivning = new javax.swing.JLabel();
+        lblProjektNyttStartDatum = new javax.swing.JLabel();
+        lblProjektNyttSlutDatum = new javax.swing.JLabel();
+        lblProjektNyKostnad = new javax.swing.JLabel();
+        lblProjektNyStatus = new javax.swing.JLabel();
+        lblProjektNyPrioritet = new javax.swing.JLabel();
+        lblProjektNyProjektChef = new javax.swing.JLabel();
+        lblProjektNyttLand = new javax.swing.JLabel();
+        tfProjektNyttNamn = new javax.swing.JTextField();
+        tfProjektNyBeskrivning = new javax.swing.JTextField();
+        tfProjektNyttStartDatum = new javax.swing.JTextField();
+        tfProjektNyttSlutDatum = new javax.swing.JTextField();
+        tfProjektNyKostnad = new javax.swing.JTextField();
+        tfProjektNyStatus = new javax.swing.JTextField();
+        tfProjektNyPrioritet = new javax.swing.JTextField();
+        tfProjektNyProjektChef = new javax.swing.JTextField();
+        tfProjektNyttLand = new javax.swing.JTextField();
+        btnProjektNyttNamn = new javax.swing.JButton();
+        btnProjektNyBeskrivning = new javax.swing.JButton();
+        btnProjektNyttStartDatum = new javax.swing.JButton();
+        btnProjektNyttSlutDatum = new javax.swing.JButton();
+        btnProjektNyKostnad = new javax.swing.JButton();
+        btnProjektNyStatus = new javax.swing.JButton();
+        btnProjektNyPrioritet = new javax.swing.JButton();
+        btnProjektNyProjektChef = new javax.swing.JButton();
+        btnProjektNyttLand = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -498,7 +536,86 @@ public void fyllCbAllaProjekt(){
 
         cbDatumTill.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj ett Datum" }));
 
-        jLabel1.setText("Fixa ändra");
+        lblProjektNyttNamn.setText("Nytt Namn");
+
+        lblProjektNyBeskrivning.setText("Ny Beskrivning");
+
+        lblProjektNyttStartDatum.setText("Nytt StartDatum");
+
+        lblProjektNyttSlutDatum.setText("Nytt SlutDatum");
+
+        lblProjektNyKostnad.setText("Ny Kostnad");
+
+        lblProjektNyStatus.setText("Ny Status");
+
+        lblProjektNyPrioritet.setText("Ny Prioritet");
+
+        lblProjektNyProjektChef.setText("Ny Projekt-Chef");
+
+        lblProjektNyttLand.setText("Nytt Land");
+
+        btnProjektNyttNamn.setText("Ändra");
+        btnProjektNyttNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyttNamnActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyBeskrivning.setText("Ändra");
+        btnProjektNyBeskrivning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyBeskrivningActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyttStartDatum.setText("Ändra");
+        btnProjektNyttStartDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyttStartDatumActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyttSlutDatum.setText("Ändra");
+        btnProjektNyttSlutDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyttSlutDatumActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyKostnad.setText("Ändra");
+        btnProjektNyKostnad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyKostnadActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyStatus.setText("Ändra");
+        btnProjektNyStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyStatusActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyPrioritet.setText("Ändra");
+        btnProjektNyPrioritet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyPrioritetActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyProjektChef.setText("Ändra");
+        btnProjektNyProjektChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyProjektChefActionPerformed(evt);
+            }
+        });
+
+        btnProjektNyttLand.setText("Ändra");
+        btnProjektNyttLand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProjektNyttLandActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -531,43 +648,26 @@ public void fyllCbAllaProjekt(){
                         .addComponent(lblDatum)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnStatus)
-                                .addGap(224, 224, 224))
+                            .addComponent(lblDatumFrom)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbDatumFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDatumFrom)
+                                    .addComponent(lblDatumTill)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbDatumFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbDatumTill, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDatumTill)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbDatumTill, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnSokDatum)))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(btnSokDatum)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFelmeddelande)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addComponent(lblStatus)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblFelmeddelande))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblProjekt)
-                                        .addGap(68, 68, 68)
-                                        .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblProjektNamn)
-                                        .addGap(72, 72, 72)
-                                        .addComponent(tfProjektNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblProjekt)
+                                .addGap(68, 68, 68)
+                                .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(80, 80, 80)
                                 .addComponent(btnAddProjekt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -580,10 +680,11 @@ public void fyllCbAllaProjekt(){
                                     .addComponent(lblProjektKostnad)
                                     .addComponent(lblProjektStatus)
                                     .addComponent(lblProjektStartDatum)
-                                    .addComponent(lblProjektBeskrivning)
                                     .addComponent(lblProjektPrioritet)
                                     .addComponent(lblProjektProjektChef)
-                                    .addComponent(lblProjektLand))
+                                    .addComponent(lblProjektLand)
+                                    .addComponent(lblProjektNamn)
+                                    .addComponent(lblProjektBeskrivning))
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfProjektBeskrivning, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
@@ -593,11 +694,67 @@ public void fyllCbAllaProjekt(){
                                     .addComponent(tfProjektKostnad)
                                     .addComponent(tfProjektStatus)
                                     .addComponent(tfProjektPrioritet)
-                                    .addComponent(tfProjektProjektChef))
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                                    .addComponent(tfProjektProjektChef)
+                                    .addComponent(tfProjektNamn))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyttNamn)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(tfProjektNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyttLand)
+                                        .addGap(58, 58, 58)
+                                        .addComponent(tfProjektNyttLand))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyBeskrivning)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(tfProjektNyBeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyttStartDatum)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(tfProjektNyttStartDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyttSlutDatum)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(tfProjektNyttSlutDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyKostnad)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(tfProjektNyKostnad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyStatus)
+                                        .addGap(60, 60, 60)
+                                        .addComponent(tfProjektNyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyPrioritet)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(tfProjektNyPrioritet, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProjektNyProjektChef)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(tfProjektNyProjektChef, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnProjektNyttNamn)
+                                    .addComponent(btnProjektNyBeskrivning)
+                                    .addComponent(btnProjektNyttStartDatum)
+                                    .addComponent(btnProjektNyttSlutDatum)
+                                    .addComponent(btnProjektNyKostnad)
+                                    .addComponent(btnProjektNyStatus)
+                                    .addComponent(btnProjektNyPrioritet)
+                                    .addComponent(btnProjektNyProjektChef)
+                                    .addComponent(btnProjektNyttLand))))
+                        .addGap(0, 146, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(lblStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnStatus)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,13 +777,13 @@ public void fyllCbAllaProjekt(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTaRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStatus)
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(183, 183, 183)
+                    .addComponent(btnStatus))
+                .addGap(105, 105, 105)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDatumFrom)
                     .addComponent(lblDatumTill))
@@ -637,7 +794,7 @@ public void fyllCbAllaProjekt(){
                         .addComponent(btnSokDatum)
                         .addComponent(cbDatumFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbDatumTill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(146, 146, 146)
+                .addGap(164, 164, 164)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjekt)
                     .addComponent(cbProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -647,45 +804,67 @@ public void fyllCbAllaProjekt(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjektNamn)
-                    .addComponent(tfProjektNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblProjektBeskrivning)
-                            .addComponent(tfProjektBeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
+                    .addComponent(tfProjektNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyttNamn)
+                    .addComponent(tfProjektNyttNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyttNamn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfProjektBeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyBeskrivning)
+                    .addComponent(lblProjektBeskrivning)
+                    .addComponent(tfProjektNyBeskrivning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyBeskrivning))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjektStartDatum)
-                    .addComponent(tfProjektStartdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProjektStartdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyttStartDatum)
+                    .addComponent(tfProjektNyttStartDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyttStartDatum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjektSlutDatum)
-                    .addComponent(tfProjektSlutdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProjektSlutdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyttSlutDatum)
+                    .addComponent(tfProjektNyttSlutDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyttSlutDatum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjektKostnad)
-                    .addComponent(tfProjektKostnad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProjektKostnad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyKostnad)
+                    .addComponent(tfProjektNyKostnad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyKostnad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProjektStatus)
-                    .addComponent(tfProjektStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfProjektStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProjektNyStatus)
+                    .addComponent(tfProjektNyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProjektPrioritet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProjektPrioritet))
+                    .addComponent(lblProjektPrioritet)
+                    .addComponent(lblProjektNyPrioritet)
+                    .addComponent(tfProjektNyPrioritet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyPrioritet))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProjektProjektChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProjektProjektChef))
+                    .addComponent(lblProjektProjektChef)
+                    .addComponent(lblProjektNyProjektChef)
+                    .addComponent(tfProjektNyProjektChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyProjektChef))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProjektLand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProjektLand))
-                .addGap(32, 32, 32)
+                    .addComponent(lblProjektLand)
+                    .addComponent(lblProjektNyttLand)
+                    .addComponent(tfProjektNyttLand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProjektNyttLand))
+                .addGap(31, 31, 31)
                 .addComponent(lblFelmeddelande)
                 .addGap(1, 1, 1)
                 .addComponent(btnTillbaka)
@@ -709,16 +888,7 @@ public void fyllCbAllaProjekt(){
 
     private void btnAndraProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraProjektActionPerformed
         
-        String startdatumString = tfProjektStartdatum.getText();
-        String slutdatumString = tfProjektSlutdatum.getText();
-        
-        java.util.Date startdatumUtil = setDatum(startdatumString);
-        java.util.Date slutdatumUtil = setDatum(slutdatumString);
-        
-        java.sql.Date startdatum = new java.sql.Date(startdatumUtil.getTime());
-        java.sql.Date slutdatum = new java.sql.Date(slutdatumUtil.getTime());
-        
-        redigeraProjekt(startdatum, slutdatum);
+        setSynlighet("changeBtn", true);
         
     }//GEN-LAST:event_btnAndraProjektActionPerformed
 
@@ -798,6 +968,156 @@ public void fyllCbAllaProjekt(){
         this.setVisible(false);
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
+    private void btnProjektNyttNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyttNamnActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String namn = tfProjektNyttNamn.getText();
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektNamn(anstalldIdInt, projektID, namn);
+        }
+    }//GEN-LAST:event_btnProjektNyttNamnActionPerformed
+
+    private void btnProjektNyBeskrivningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyBeskrivningActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String beskrivning = tfProjektNyBeskrivning.getText();
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektBeskrivning(anstalldIdInt, projektID, beskrivning);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyBeskrivningActionPerformed
+
+    private void btnProjektNyttStartDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyttStartDatumActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String startdatumString = tfProjektNyttStartDatum.getText();
+        java.util.Date startdatumUtil = setDatum(startdatumString);
+        java.sql.Date startdatum = new java.sql.Date(startdatumUtil.getTime());
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektStartdatum(anstalldIdInt, projektID, startdatum);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyttStartDatumActionPerformed
+
+    private void btnProjektNyttSlutDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyttSlutDatumActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String slutdatumString = tfProjektNyttSlutDatum.getText();
+        java.util.Date slutdatumUtil = setDatum(slutdatumString);
+        java.sql.Date slutdatum = new java.sql.Date(slutdatumUtil.getTime());
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektSlutDatum(anstalldIdInt, projektID, slutdatum);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyttSlutDatumActionPerformed
+
+    private void btnProjektNyKostnadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyKostnadActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String kostnadString = tfProjektNyKostnad.getText();
+        int kostnadInt = Integer.parseInt(kostnadString);
+        double kostnad = kostnadInt;
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektKostnad(anstalldIdInt, projektID, kostnad);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyKostnadActionPerformed
+
+    private void btnProjektNyStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyStatusActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String status = tfProjektNyStatus.getText();
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektStatus(anstalldIdInt, projektID, status);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyStatusActionPerformed
+
+    private void btnProjektNyPrioritetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyPrioritetActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String prioritet = tfProjektNyPrioritet.getText();
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektPrioritet(anstalldIdInt, projektID, prioritet);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyPrioritetActionPerformed
+
+    private void btnProjektNyProjektChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyProjektChefActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String projektchef = tfProjektNyProjektChef.getText();
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(admin){
+            projekt.changeProjektChef(projektID, projektchef);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyProjektChefActionPerformed
+
+    private void btnProjektNyttLandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektNyttLandActionPerformed
+        
+        String namnProjekt = (String) cbProjekt.getSelectedItem();
+        String landString = tfProjektNyttLand.getText();
+        String landID = land.getLandID(landString);
+        int land1 = Integer.parseInt(landID);
+        
+        String projektIdString = projekt.getProjektID(namnProjekt);
+        int projektID = Integer.parseInt(projektIdString);
+        
+        boolean chef = validering.arProjektChef(anstalldID);
+        boolean admin = anstalld.getAdmin(anstalldID);
+        if(chef || admin){
+            projekt.changeProjektLand(anstalldIdInt, projektID, land1);
+        }
+        
+    }//GEN-LAST:event_btnProjektNyttLandActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -842,6 +1162,15 @@ public void fyllCbAllaProjekt(){
     private javax.swing.JButton btnKostnadsStatistik;
     private javax.swing.JButton btnMinaProjekt;
     private javax.swing.JButton btnPartnersIProjekt;
+    private javax.swing.JButton btnProjektNyBeskrivning;
+    private javax.swing.JButton btnProjektNyKostnad;
+    private javax.swing.JButton btnProjektNyPrioritet;
+    private javax.swing.JButton btnProjektNyProjektChef;
+    private javax.swing.JButton btnProjektNyStatus;
+    private javax.swing.JButton btnProjektNyttLand;
+    private javax.swing.JButton btnProjektNyttNamn;
+    private javax.swing.JButton btnProjektNyttSlutDatum;
+    private javax.swing.JButton btnProjektNyttStartDatum;
     private javax.swing.JButton btnProjektPaMinAvdelning;
     private javax.swing.JButton btnRedigeraProjekt;
     private javax.swing.JButton btnSokDatum;
@@ -853,7 +1182,6 @@ public void fyllCbAllaProjekt(){
     private javax.swing.JComboBox<String> cbDatumTill;
     private javax.swing.JComboBox<String> cbProjekt;
     private javax.swing.JComboBox<String> cbStatus;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDatum;
     private javax.swing.JLabel lblDatumFrom;
@@ -864,6 +1192,15 @@ public void fyllCbAllaProjekt(){
     private javax.swing.JLabel lblProjektKostnad;
     private javax.swing.JLabel lblProjektLand;
     private javax.swing.JLabel lblProjektNamn;
+    private javax.swing.JLabel lblProjektNyBeskrivning;
+    private javax.swing.JLabel lblProjektNyKostnad;
+    private javax.swing.JLabel lblProjektNyPrioritet;
+    private javax.swing.JLabel lblProjektNyProjektChef;
+    private javax.swing.JLabel lblProjektNyStatus;
+    private javax.swing.JLabel lblProjektNyttLand;
+    private javax.swing.JLabel lblProjektNyttNamn;
+    private javax.swing.JLabel lblProjektNyttSlutDatum;
+    private javax.swing.JLabel lblProjektNyttStartDatum;
     private javax.swing.JLabel lblProjektPrioritet;
     private javax.swing.JLabel lblProjektProjektChef;
     private javax.swing.JLabel lblProjektSlutDatum;
@@ -876,6 +1213,15 @@ public void fyllCbAllaProjekt(){
     private javax.swing.JTextField tfProjektKostnad;
     private javax.swing.JTextField tfProjektLand;
     private javax.swing.JTextField tfProjektNamn;
+    private javax.swing.JTextField tfProjektNyBeskrivning;
+    private javax.swing.JTextField tfProjektNyKostnad;
+    private javax.swing.JTextField tfProjektNyPrioritet;
+    private javax.swing.JTextField tfProjektNyProjektChef;
+    private javax.swing.JTextField tfProjektNyStatus;
+    private javax.swing.JTextField tfProjektNyttLand;
+    private javax.swing.JTextField tfProjektNyttNamn;
+    private javax.swing.JTextField tfProjektNyttSlutDatum;
+    private javax.swing.JTextField tfProjektNyttStartDatum;
     private javax.swing.JTextField tfProjektPrioritet;
     private javax.swing.JTextField tfProjektProjektChef;
     private javax.swing.JTextField tfProjektSlutdatum;

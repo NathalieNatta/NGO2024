@@ -15,8 +15,10 @@ public class Meny extends javax.swing.JFrame {
 
     private InfDB idb;
     private String inloggadAnv;
-    private String aid;
+    private String anstalldID;
     private String namn;
+    private Validering validering;
+    private Anstallning anstallning;
     
     /**
      * Creates new form Meny
@@ -25,13 +27,16 @@ public class Meny extends javax.swing.JFrame {
         this.idb = idb;
         this.inloggadAnv = inloggadAnv;
         
-        Anstallning anstallning = new Anstallning(idb, inloggadAnv);
-        //aid = "1";
-        //aid = "6";
-        aid = anstallning.getInloggadAID(inloggadAnv);
         
-        String atkomst = anstallning.getAtkomst(aid);
-        namn = anstallning.getNamn(aid);
+        
+        anstalldID = "1";
+        //anstalldID = "6";
+        //anstalldID = anstallning.getInloggadAID(inloggadAnv);
+        validering = new Validering(idb, anstalldID);
+        anstallning = new Anstallning(idb, inloggadAnv);
+        
+        String atkomst = anstallning.getAtkomst(anstalldID);
+        namn = anstallning.getNamn(anstalldID);
         
         
         initComponents();
@@ -40,33 +45,35 @@ public class Meny extends javax.swing.JFrame {
     }
     public Meny(InfDB idb, String aid, String inget) {
         this.idb = idb;
-        this.aid = aid;
+        //anstalldID = aid;
         
-        Anstallning anstallning = new Anstallning(idb, aid, "");
-        //aid = "1";
+        
+        
+        anstalldID = "1";
         //aid = "6";
-        this.aid = aid;
+        validering = new Validering(idb, anstalldID);
+        anstallning = new Anstallning(idb, anstalldID, "");
         
-        String atkomst = anstallning.getAtkomst(aid);
-        namn = anstallning.getNamn(aid);
+        String atkomst = anstallning.getAtkomst(anstalldID);
+        namn = anstallning.getNamn(anstalldID);
         
         
         initComponents();
         lblInloggad.setText("Välkommen " + atkomst + " " + namn);
-        
+        setAdminBtns();
     }
     
     private void setAdminBtns(){
-        Anstallning anstallning = new Anstallning(idb, aid);
-        boolean admin = anstallning.getAdmin(aid);
+        
+        boolean admin = anstallning.getAdmin(anstalldID);
 
         if(admin)
         {    
             btnLand.setVisible(true);
-            //btnPartners.setVisible(true);
+            btnPartners.setVisible(true);
         }else{
             btnLand.setVisible(false);
-            //btnPartners.setVisible(false);
+            btnPartners.setVisible(false);
         }
 
     }
@@ -193,7 +200,7 @@ public class Meny extends javax.swing.JFrame {
 
     private void btnKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontoActionPerformed
         
-        Kontoinstallningar mittKonto = new Kontoinstallningar(idb, aid);
+        Kontoinstallningar mittKonto = new Kontoinstallningar(idb, anstalldID);
         mittKonto.setVisible(true);
         this.setVisible(false);
         
@@ -201,42 +208,42 @@ public class Meny extends javax.swing.JFrame {
 
     private void btnAnstalldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnstalldaActionPerformed
         
-        RedigeraAnstallda redigeraAnstallda = new RedigeraAnstallda(idb, aid);
+        RedigeraAnstallda redigeraAnstallda = new RedigeraAnstallda(idb, anstalldID);
         redigeraAnstallda.setVisible(true);
         
     }//GEN-LAST:event_btnAnstalldaActionPerformed
 
     private void btnAvdelningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvdelningActionPerformed
         
-        AvdelningMeny avdelningM = new AvdelningMeny(idb, aid);
+        AvdelningMeny avdelningM = new AvdelningMeny(idb, anstalldID);
         avdelningM.setVisible(true);
         
     }//GEN-LAST:event_btnAvdelningActionPerformed
 
     private void btnProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjektActionPerformed
         
-        ProjektMeny projektMeny = new ProjektMeny(idb, aid);
+        ProjektMeny projektMeny = new ProjektMeny(idb, anstalldID);
         projektMeny.setVisible(true);
         
     }//GEN-LAST:event_btnProjektActionPerformed
 
     private void btnLandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLandActionPerformed
         
-        LandMeny landMeny = new LandMeny(idb, aid);
+        LandMeny landMeny = new LandMeny(idb, anstalldID);
         landMeny.setVisible(true);
         
     }//GEN-LAST:event_btnLandActionPerformed
 
     private void btnPartnersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartnersActionPerformed
         
-        PartnersMeny partnersMeny = new PartnersMeny(idb, aid);
+        PartnersMeny partnersMeny = new PartnersMeny(idb, anstalldID);
         partnersMeny.setVisible(true);
         
     }//GEN-LAST:event_btnPartnersActionPerformed
 
     private void btnHallbarhetsmalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHallbarhetsmalActionPerformed
         
-        HallbarhetsmalMeny hallbarhetsmalMeny = new HallbarhetsmalMeny(idb, aid);
+        HallbarhetsmalMeny hallbarhetsmalMeny = new HallbarhetsmalMeny(idb, anstalldID);
         hallbarhetsmalMeny.setVisible(true);
         
     }//GEN-LAST:event_btnHallbarhetsmalActionPerformed

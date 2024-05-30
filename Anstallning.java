@@ -11,19 +11,20 @@ import java.util.Random;
 
 /**
  *
- * @author JillWithJ
+ * @author JillWithJ, Natha, Israael
  */
 public class Anstallning {
     
     private String inloggadAnv;
     private String anstalldID;
     private InfDB idb;
+    private Validering validering;
     
     public Anstallning(InfDB idb, String inloggadAnv){
         this.inloggadAnv = inloggadAnv;
         this.idb = idb;
         anstalldID = getInloggadAID(inloggadAnv);
-        
+        validering = new Validering(idb, anstalldID);
     }
     
     public Anstallning(InfDB idb, String aid, String inget){
@@ -47,32 +48,6 @@ public class Anstallning {
         }
         
         return aid;
-    }
-    
-    public boolean getAdmin(String aid){
-        
-        String adminString;
-        int adminInt;
-        boolean admin = false;
-        
-        try{
-            String sqlFraga = "SELECT behorighetsniva FROM admin WHERE aid = '" + aid + "'";
-            adminString = idb.fetchSingle(sqlFraga);
-            if(adminString != null){
-                adminInt = Integer.parseInt(adminString);
-                admin = (adminInt == 1);
-            }
-            
-        }
-        
-        catch(InfException ex){
-            System.out.println(ex.getMessage());
-        }
-                
-        System.out.print("Admin: " + admin);
-        
-        
-        return admin;
     }
     
     public boolean getMentor(String aid){
@@ -139,6 +114,32 @@ public class Anstallning {
         
         return namn;
         
+    }
+    
+    public boolean getAdmin(String aid){
+        
+        String adminString;
+        int adminInt;
+        boolean admin = false;
+        
+        try{
+            String sqlFraga = "SELECT behorighetsniva FROM admin WHERE aid = '" + aid + "'";
+            adminString = idb.fetchSingle(sqlFraga);
+            if(adminString != null){
+                adminInt = Integer.parseInt(adminString);
+                admin = (adminInt == 1);
+            }
+            
+        }
+        
+        catch(InfException ex){
+            System.out.println(ex.getMessage());
+        }
+                
+        System.out.print("Admin: " + admin);
+        
+        
+        return admin;
     }
     
     public String getAtkomst(String aid){
